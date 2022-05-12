@@ -11,6 +11,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 
 <h2>Contenu du backlog</h2>
 
+Romain nique tes morts
+
 <?php
 
 // TODO
