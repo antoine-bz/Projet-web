@@ -2,9 +2,10 @@ a {
   color: #333333;
 }
 
-.navbar-brand img{
+#logo {
+	display:inline;
+	float:left;
   width: 30%;
-  height: 30%;
 }
 
 #banniere {

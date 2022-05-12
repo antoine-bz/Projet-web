@@ -48,8 +48,9 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
           <span class="icon-bar"></span>
         </button>
 
-  
-	<a class="navbar-brand"><img src="ressources/2indeed.png" alt="2indeed"></a>
+<div id="logo" class="navbar-brand">
+<img src="ressources/2indeed.png" alt="2indeed">/>
+</div>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
