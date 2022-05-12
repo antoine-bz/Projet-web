@@ -49,7 +49,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
         </button>
 
   
-	<a class="navbar-brand" ><img src="ressources/2indeed.png" alt="2indeed"></a>
+	<a class="navbar-brand"><img src="ressources/2indeed.png" alt="2indeed"></a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
