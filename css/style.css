@@ -2,10 +2,11 @@ a {
   color: #333333;
 }
 
-.pic-brand{
+.navbar-brand img{
   width: 5%;
   height: 5%;
 }
+
 #banniere {
   background-color: #E4E4E4;
   overflow: hidden;

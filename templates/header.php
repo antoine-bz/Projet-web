@@ -49,14 +49,16 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
         </button>
 
   
-	<a class="navbar-brand" ><img id="pic-brand" src="ressources/2indeed.png" alt="2indeed"></a>
+	<a class="navbar-brand" ><img src="ressources/2indeed.png" alt="2indeed"></a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <?php
             echo mkHeadLink("Accueil", "accueil", $view);
-            echo mkHeadLink("Nouvelle caractéristique", "carac", $view);
-            echo mkHeadLink("Nouvelle tâche", "tache", $view);
+            echo mkHeadLink("Gestion Compte etudiant", "etudiant", $view); //page gestion compte etudiant favoris
+            echo mkHeadLink("Gestion Compte", "users", $view); //page gestion compte users 
+            echo mkHeadLink("Adminstration site", "admin", $view); //page administration site modification des droits des utilisateurs
+            echo mkHeadLink("Login", "login", $view); //page de login et de création de compte
           ?>
         </ul>
       </div><!--/.nav-collapse -->
