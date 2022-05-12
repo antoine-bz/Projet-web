@@ -48,8 +48,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
           <span class="icon-bar"></span>
         </button>
 
-<div id="logo" class="navbar-brand">
-<img src="ressources/2indeed.png" alt="2indeed">/>
+      <a class="navbar-brand" id="logo" href="index.php?view=accueil"> 2i'ndeed </a> <!-- <img src="ressources/2indeed.png" alt="2indeed"> -->
 </div>
       </div>
       <div class="collapse navbar-collapse">

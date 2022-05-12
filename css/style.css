@@ -2,12 +2,6 @@ a {
   color: #333333;
 }
 
-#logo {
-	display:inline;
-	float:left;
-  width: 30%;
-}
-
 #banniere {
   background-color: #E4E4E4;
   overflow: hidden;
