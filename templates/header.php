@@ -47,7 +47,9 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
         </button>
-	<a class="navbar-brand" href="index.php?view=accueil">2i'ndeed</a>
+
+  
+	<a class="navbar-brand" ><img id="pic-brand" src="ressources/2indeed.png" alt="2indeed"></a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
