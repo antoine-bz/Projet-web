@@ -41,9 +41,9 @@ session_start();
 					if (verifUser($login,$passe)) {
 						// tout s'est bien passé, doit-on se souvenir de la personne ? 
 						if (valider("remember")) {
-							setcookie("login",$login , time()+60*60*24*30);
-							setcookie("passe",$password, time()+60*60*24*30);
-							setcookie("remember",true, time()+60*60*24*30);
+							setcookie("login",$login , time()-3600);
+							setcookie("passe",$password, time()-3600);
+							setcookie("remember",true, time()-3600);
 						} else {
 							setcookie("login","", time()-3600);
 							setcookie("passe","", time()-3600);
@@ -120,12 +120,10 @@ session_start();
 			case 'Poster' : 		
 			
 			// Données reçues : contenu=... & idConv...
-			// Un message ne peut être posté que par un utilisateur NON blacklisté 
 			// ET dans une conversation active 	 
 			if ($idConv = valider("idConv")) 
 			if ($contenu = valider("contenu"))
-			if (valider("connecte","SESSION"))
-			if (! valider("isBlacklisted","SESSION")) {
+			if (valider("connecte","SESSION")){
 				$dataConv = getConversation($idConv);
 				if (count($dataConv) > 0)
 				if ($dataConv["active"]) {

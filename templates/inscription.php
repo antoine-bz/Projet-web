@@ -24,15 +24,16 @@ include_once("libs/maLibForms.php");
 <div id="formSignin">
 <h1>Inscription</h1>
 	<form action="controleur.php" method="GET">
-	<input type="radio" name="main-categories" id="signinetudiant" value="etudiant" onchange="showSignInEtudiantForm();" checked/>
+	<input type="radio" name="main-categories" id="signinetudiant" value="etudiant" onchange="showSignInEtudiantForm();"
+	<?php if(!$login = valider("entreprise")) echo "checked";?>/>
 	<label for="signinetudiant">Etudiant</label>
 
-	<input type="radio" name="main-categories" id="signinentreprise" value="etudiant"  onchange="showSignInEntrepriseForm();" />
+	<input type="radio" name="main-categories" id="signinentreprise" value="etudiant"  onchange="showSignInEntrepriseForm();"<?php if($login = valider("entreprise")) echo "checked";?>/>
 	<label for="signinentreprise">Entreprise</label>
 	
 		</br>
-		<label for="login"> Login : </label><input type="text" id="login" name="login" /><br />
-		<label for="passe">Passe : </label><input type="password" id="passe" name="passe" /><br />
+		<label for="login"> Adresse mail : </label><input type="text" id="mail" name="mail" /><br />
+		<label for="password">Mot de passe : </label><input type="password" id="password" name="password" /><br />
 
 
 		<div id="signinetudiantform">
@@ -43,7 +44,7 @@ include_once("libs/maLibForms.php");
 		<div id="signinentrepriseform">
 
 			<label for="nomEntreprise"> Nom de l'entreprise :  </label><input type="text" id="nomEntreprise" name="nomEntreprise" /><br />
-			<label for="secteurAct"> secteur d'activité :  </label>
+			<label for="secteurAct"> Secteur d'activité :  </label>
 			<?php
 			$carac= getSecteurs();
 			mkSelect("secteurAct", $carac, "nom", "nom");
@@ -51,7 +52,6 @@ include_once("libs/maLibForms.php");
 
 		</div>
 	
-
 		<input type="submit" name="action" value="S'inscrire" />
 	</form>
 </div>
