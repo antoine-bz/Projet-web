@@ -32,6 +32,7 @@ session_start();
 			// Connexion //////////////////////////////////////////////////
 			case 'Connexion' :
 				// On verifie la presence des champs login et passe
+				$qs = "?view=login&msg=" . urlencode("Login ou mot de passe manquant");
 				if ($login = valider("login"))
 				if ($passe = valider("passe"))
 				{
@@ -49,7 +50,10 @@ session_start();
 							setcookie("passe","", time()-3600);
 							setcookie("remember",false, time()-3600);
 						}
+						$qs = "?view=accueil";
 					}
+					else $qs = "?view=login&msg=" . urlencode("Identifiants incorrects");
+		
 				}
 
 				// On redirigera vers la page index automatiquement
@@ -63,7 +67,44 @@ session_start();
 				$qs = "?view=login";
 			break;
 
-			case 'Autoriser' : 
+			case "Inscription" :
+				
+				if ($mail = valider("mail"))
+				if ($password = valider("password")){
+					$qs = "?view=inscription"; 
+					switch (valider("main-categories")) {
+						case '1':
+							if ($nomEtudiant = valider("nomEtudiant"))
+							if ($prenomEtudiant = valider("prenomEtudiant"))
+							{
+								$idEtudiants=creerEtudiant($prenomEtudiant,$nomEtudiant);
+								$idEtud=intval($idEtudiants);
+								creerConnexionEtudiant($idEtud,$password,$mail);
+								$qs = "?view=inscription&msg=" . urlencode("Création réussie, connectez-vous"); 
+							}
+							else//Si les informations sont incorrectes
+							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects");
+							break;
+						case '2':
+							if ($nomEntreprise = valider("nomEntreprise"))
+							if ($secteurAct = valider("secteurAct"))	
+							{
+								$idEntreprises =creerEntreprise($nomEntreprise,$secteurAct);
+								$idEnt=intval($idEntreprises);
+								creerConnexionEntreprise($idEnt,$password,$mail);
+								$qs = "?view=inscription&msg=" . urlencode("Création réussie, connectez-vous"); 
+							}
+							else //Si les informations sont incorrectes
+							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects");
+							break;
+						default:
+							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects case");
+							break;
+					}
+				}
+
+				// traitement métier
+				// redirection vers la vue suivante
 			break;
 
 			

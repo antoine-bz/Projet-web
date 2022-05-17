@@ -21,7 +21,7 @@ include_once("libs/maLibForms.php");
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/styleacc.css">
+<link rel="stylesheet" type="text/css" href="css/styleaccueil.css">
 <div id="corps">
 
 <h1>Bienvenue sur 2i'ndeed !</h1>
@@ -29,13 +29,23 @@ include_once("libs/maLibForms.php");
 <h5>Rechercher votre stage :</h5>
 <br/>
 <form action="controleur.php" method="GET">
-	<input type="text" id="ou" name="ou" placeholder="Ville ou code postal"/><br/>
-	<input type="text" id="quoi" name="quoi" placeholder="Métier, entreprise"/><br/>
+	<input type="text" id="ou" name="ou" placeholder="Ville"/><br/>
+	<input type="text" id="quoi" name="quoi" placeholder="Secteur"/><br/>
 	<input type="submit" id="rechercher" name="action" value="Rechercher"/>
 </form>
 <br/>
 <br/>
 <u><h3>Dernières annonces :</h3></u>
 <br/>
+<div id="lastannonces">
+    <?php
+        $lastannonces=getLastAnnonce();
+        //echo json_encode($lastannonces);
+        foreach($lastannonces as $annonce)
+        {
+            mkAnnoncePreview($annonce["idAnnonces"],"previewAnnonce");
+        }
+    ?>
+</div>
 
 </div>

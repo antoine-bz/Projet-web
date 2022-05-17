@@ -39,31 +39,10 @@ Les formulaires de toutes les vues générées enverront leurs données vers la 
 		case "accueil" : 
 			include("templates/accueil.php");
 		break;
-		
+
 		case "connexion" : 
-			include("templates/login.php");
-		break;
-
-		case "inscription" : 
-			include("templates/inscription.php");
-		break;
-
-
-		case "recherche" : 
-			include("templates/recherche.php");
-		break;
-
-		case "depot" : 
-			include("templates/depot.php");
-		break;
-
-		case "info" : 
-			include("templates/info.php");
-		break;
-
-		case "entreprise" : 
-			include("templates/entreprise.php");
-		break;
+            include("templates/login.php");
+        break;
 
 		default : // si le template correspondant à l'argument existe, on l'affiche
 			if (file_exists("templates/$view.php"))

@@ -8,6 +8,7 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 }
 
 include_once "libs/modele.php";
+include_once "libs/maLib2indeed.php";
 
 // Pose qq soucis avec certains serveurs...
 echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
@@ -18,9 +19,11 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <!-- **** H E A D **** -->
 <head>	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="icon" href="ressources/logo.png" />
 	<title>2i'ndeed</title>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/stylehead.css">
+	<link rel="stylesheet" type="text/css" href="css/styleheader.css">
+  <script src="js/script.js"></script>
 
 </head>
 <!-- **** F I N **** H E A D **** -->
@@ -30,11 +33,11 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <body>
   <header class="p-1 bg-primary text-white">
     <div class="container">
-      <a class="logo" href="index.php?view=accueil"><img src="ressources/logosite.png" alt="Logo"></a>
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
+         <a class="logo" href="index.php?view=accueil"><img src="ressources/logosite.png" alt="Logo"></a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="index.php?view=recherche" class="nav-link px-1 text-white">Rechercher</a></li>
           <li><a href="index.php?view=depot" class="nav-link px-1 text-white">Dépôt de CV</a></li>

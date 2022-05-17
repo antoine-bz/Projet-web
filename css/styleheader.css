@@ -1,0 +1,14 @@
+.logo img {
+	height: 80px;
+	width: 190px;
+}
+
+.mb-md-0 a {
+	width: 157px;
+	text-align: center;
+}
+
+.mb-md-0 a:hover {
+  background-color: #b5bd00;
+  margin-top: -0.7%;
+}

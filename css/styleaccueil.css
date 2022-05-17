@@ -1,0 +1,100 @@
+#ou {
+	border: 1.5px solid;
+	border-radius: 30px;
+	margin-left: 39.5%;
+	height: 30%;
+    width: 21%;
+    font-size: 140%;
+    text-align: center;
+    display: block;
+}
+
+#quoi {
+	border: 1.5px solid;
+	border-radius: 20px;
+	margin-left: 39.5%;
+	height: 30%;
+    width: 21%;
+    font-size: 140%;
+    text-align: center;
+    display: block;
+}
+
+#rechercher {
+	margin-left: 45%;
+	height: 40%;
+    width: 10%;
+    background-color: #b5bd00;
+    border-radius: 10px;
+    border-color: #b5bd00;
+    color: #fff;
+    display: block;
+    font-size: 140%;
+    border: 0.5px solid;
+}
+
+#rechercher:hover {
+    background-color: #A8B002;
+    border-color: #A8B002;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 1%;
+}
+
+h5 {
+	text-align: center;
+}
+
+h3 {
+	margin-left: 17%;
+}
+
+.seemore{
+    padding: 2%;
+    position: relative;
+    text-decoration: none;
+    background-color: #b5bd00;
+    border-radius: 10px;
+    border-color: #b5bd00;
+    text-align: center;
+    color: #fff;
+    margin-left: 8%;
+}
+
+.seemore:hover {
+    background-color: #A8B002;
+    border-color: #A8B002;
+    color: #fff;
+}
+
+#lastannonces{
+    margin-left: 20%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.info {
+    text-decoration: none;
+    color: #fff;
+    font-size: 170%;
+    background-color: #607D8B;
+    padding: 12.2px;
+    border-radius: 10px;
+}
+
+.info:hover {
+    color: #fff;
+}
+
+
+#lastannonces > .previewAnnonce{
+    border: 0.5px solid;
+    width: 20%;
+    height: 30%;
+    float: left;
+    margin: 5px;
+    position: relative;
+    border-radius: 5px;
+}

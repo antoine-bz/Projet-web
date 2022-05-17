@@ -25,17 +25,6 @@ function listerUtilisateurs($classe = "both")
 
 }
 
-
-function interdireUtilisateur($idUser)
-{
-	// cette fonction affecte le booléen "blacklist" à vrai pour l'utilisateur concerné 
-}
-
-function autoriserUtilisateur($idUser)
-{
-	// cette fonction affecte le booléen "blacklist" à faux pour l'utilisateur concerné 
-}
-
 function verifUserBdd($login,$passe)
 {
 	// Vérifie l'identité d'un utilisateur 
@@ -59,11 +48,7 @@ function isAdmin($idUser)
 }
 
 
-function getSecteurs()
-{
-	$SQL ="SELECT nom FROM secteur";
-	return parcoursRs(SQLSelect($SQL)); 
-}
+
 
 function getIduser($password,$mail)
 {
@@ -86,7 +71,70 @@ function isEtudiant($idUser)
 	$SQL ="SELECT idEtudiants FROM connexion WHERE idConnexion='$idUser'";
 	return SQLGetChamp($SQL);
 }
-	
+
+
+###########CREER COMPTE############
+
+function creerEntreprise($nom,$idsecteur,$adresse = NULL,$telephone = NULL)
+{
+	// Cette fonction crée une nouvelle entreprise et renvoie l'identifiant de l'entreprise créée
+	$SQL ="INSERT INTO entreprises (nom,idSecteur,adresse,telephone) VALUES ('$nom',$idsecteur,'$adresse','$telephone')";
+	return SQLInsert($SQL);
+}
+
+function creerEtudiant($prenom,$nom)
+{
+	// Cette fonction crée un nouvel étudiant et renvoie l'identifiant de l'étudiant créé
+	$SQL ="INSERT INTO etudiants (idEtudiants,prenom,nom,adresse,telephone,age,CV) VALUES (NULL,'$prenom','$nom',NULL,NULL,NULL,NULL)";
+	return SQLInsert($SQL);
+}
+
+
+function creerConnexionEtudiant($idEtudiants,$password,$mail)
+{
+	// Cette fonction crée une nouvelle connexion et renvoie l'identifiant de la connexion créée
+	$SQL ="INSERT INTO connexion(idConnexion,idEtudiants,idEntreprises,password,mail,admin) VALUES (NULL,$idEtudiants,NULL,'$password','$mail',0)";
+	return SQLInsert($SQL);
+}
+function creerConnexionEntreprise($idEntreprises,$password,$mail)
+{
+	// Cette fonction crée une nouvelle connexion et renvoie l'identifiant de la connexion créée
+	$SQL ="INSERT INTO connexion(idConnexion,idEtudiants,idEntreprises,password,mail,admin) VALUES (NULL,NULL,$idEntreprises,'$password','$mail',0)";
+	return SQLInsert($SQL);
+}
+
+
+
+###########Entreprise############
+function getIdEntreprise($idAnnonce){
+	$SQL ="SELECT idEntreprises FROM annonces WHERE idAnnonces='$idAnnonce'";
+	return SQLGetChamp($SQL);
+}
+
+
+function getEntreprise($idEntreprises){
+	$SQL ="SELECT * FROM entreprises WHERE idEntreprises='".$idEntreprises."'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+
+###########Annonce############
+function getAnnonce($idAnnonce){
+	$SQL ="SELECT * FROM annonces WHERE idAnnonces='$idAnnonce'";
+	return parcoursRs(SQLSelect($SQL)); 
+}
+
+function getLastAnnonce(){
+	$SQL ="SELECT idAnnonces FROM annonces ORDER BY date DESC LIMIT 3";
+	return parcoursRs(SQLSelect($SQL)); 
+}
+
+###########Secteurs############
+function getSecteurs()
+{
+	$SQL ="SELECT idSecteur,nom FROM secteur";
+	return parcoursRs(SQLSelect($SQL)); 
+}
 ?>
 
 
