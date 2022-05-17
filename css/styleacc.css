@@ -1,0 +1,48 @@
+#ou {
+	border: 1.5px solid;
+	border-radius: 30px;
+	margin-left: 20%;
+	height: 40px;
+    width: 400px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#quoi {
+	border: 1.5px solid;
+	border-radius: 20px;
+	margin-left: 45%;
+	height: 40px;
+    width: 400px;
+    font-size: 1.5em;
+    text-align: center;
+    position: fixed;
+    margin-top: -2%;
+}
+
+#rechercher {
+	margin-left: 37.7%;
+	height: 40px;
+    width: 200px;
+    background-color: #ff9900;
+    border-radius: 10px;
+    border-color: #ff9900;
+    color: #fff;
+}
+
+#rechercher:hover {
+    background-color: #EA9413;
+}
+
+h1 {
+	margin-left: 5%;
+	margin-top: 1%;
+}
+
+h5 {
+	margin-left: 7%;
+}
+
+h3 {
+	margin-left: 7%;
+}

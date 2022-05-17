@@ -1,0 +1,18 @@
+.container {
+	margin-top: -2.3%;
+}
+
+.logo img {
+	width: 15%;
+	height: 15%;
+}
+
+.mb-md-0 a {
+	margin-left: 5%;
+	width: 250px;
+	text-align: center;
+}
+
+.mb-md-0 a:hover {
+  background-color: #ff9900;
+}

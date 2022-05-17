@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * @file maLibUtils.php
  * Ce fichier définit des fonctions d'accès ou d'affichage pour les tableaux superglobaux
@@ -15,35 +16,35 @@
  * @return string|boolean
  */
 function valider($nom,$type="REQUEST")
-{  
-  switch($type)
-  {
-    case 'REQUEST': 
-    if(isset($_REQUEST[$nom]) && !($_REQUEST[$nom] == ""))   
-      return proteger($_REQUEST[$nom]);   
-    break;
-    case 'GET':   
-    if(isset($_GET[$nom]) && !($_GET[$nom] == ""))       
-      return proteger($_GET[$nom]); 
-    break;
-    case 'POST':   
-    if(isset($_POST[$nom]) && !($_POST[$nom] == ""))   
-      return proteger($_POST[$nom]);     
-    break;
-    case 'COOKIE':   
-    if(isset($_COOKIE[$nom]) && !($_COOKIE[$nom] == ""))   
-      return proteger($_COOKIE[$nom]);  
-    break;
-    case 'SESSION': 
-    if(isset($_SESSION[$nom]) && !($_SESSION[$nom] == ""))   
-      return $_SESSION[$nom];     
-    break;
-    case 'SERVER': 
-    if(isset($_SERVER[$nom]) && !($_SERVER[$nom] == ""))   
-      return $_SERVER[$nom];     
-    break;
-  }
-  return false; // Si pb pour récupérer la valeur 
+{	
+	switch($type)
+	{
+		case 'REQUEST': 
+		if(isset($_REQUEST[$nom]) && !($_REQUEST[$nom] == "")) 	
+			return proteger($_REQUEST[$nom]); 	
+		break;
+		case 'GET': 	
+		if(isset($_GET[$nom]) && !($_GET[$nom] == "")) 			
+			return proteger($_GET[$nom]); 
+		break;
+		case 'POST': 	
+		if(isset($_POST[$nom]) && !($_POST[$nom] == "")) 	
+			return proteger($_POST[$nom]); 		
+		break;
+		case 'COOKIE': 	
+		if(isset($_COOKIE[$nom]) && !($_COOKIE[$nom] == "")) 	
+			return proteger($_COOKIE[$nom]);	
+		break;
+		case 'SESSION': 
+		if(isset($_SESSION[$nom]) && !($_SESSION[$nom] == "")) 	
+			return $_SESSION[$nom]; 		
+		break;
+		case 'SERVER': 
+		if(isset($_SERVER[$nom]) && !($_SERVER[$nom] == "")) 	
+			return $_SERVER[$nom]; 		
+		break;
+	}
+	return false; // Si pb pour récupérer la valeur 
 }
 
 
@@ -58,11 +59,11 @@ function valider($nom,$type="REQUEST")
 */
 function getValue($nom,$defaut=false,$type="REQUEST")
 {
-  // NB : cette commande affecte la variable resultat une ou deux fois
-  if (($resultat = valider($nom,$type)) === false)
-    $resultat = $defaut;
+	// NB : cette commande affecte la variable resultat une ou deux fois
+	if (($resultat = valider($nom,$type)) === false)
+		$resultat = $defaut;
 
-  return $resultat;
+	return $resultat;
 }
 
 /**
@@ -75,56 +76,55 @@ function getValue($nom,$defaut=false,$type="REQUEST")
 */
 function proteger($str)
 {
-  // attention au cas des select multiples !
-  // On pourrait passer le tableau par référence et éviter la création d'un tableau auxiliaire
-  if (is_array($str))
-  {
-    $nextTab = array();
-    foreach($str as $cle => $val)
-    {
-      $nextTab[$cle] = addslashes($val);
-    }
-    return $nextTab;
-  }
-  else   
-    return addslashes ($str);
-  //return str_replace("'","''",$str);   //utile pour les serveurs de bdd Crosoft
+	// attention au cas des select multiples !
+	// On pourrait passer le tableau par référence et éviter la création d'un tableau auxiliaire
+	if (is_array($str))
+	{
+		$nextTab = array();
+		foreach($str as $cle => $val)
+		{
+			$nextTab[$cle] = addslashes($val);
+		}
+		return $nextTab;
+	}
+	else 	
+		return addslashes ($str);
+	//return str_replace("'","''",$str); 	//utile pour les serveurs de bdd Crosoft
 }
 
 
-// Affiche un tableau de façon récursive, dans des balises de préformatage
-// (pour du débogage)
+
 function tprint($tab)
 {
-  echo "<pre>\n";
-  print_r($tab);
-  echo "</pre>\n";  
+	echo "<pre>\n";
+	print_r($tab);
+	echo "</pre>\n";	
 }
 
 
-// Effectue une redirection vers la page $url avec la query string $qs
-// $qs peut être une chaîne de caractères ou un tableau associatif
-function rediriger($url,$qs=[])
+function rediriger($url,$qs="")
 {
-  // On convertir $qs (tableau ou CdC) en $str_qs (CdC à coup sûr)
-  if (is_array($qs)) {
-    // Si $qs est un tableau associatif (dictionnaire)
-    $str_qs = "";
-    // On crée la query string sous forme de CdC
-    foreach ($qs as $cle => $valeur) {
-      // urlencode permet d'encoder les caractères spéciaux
-      $str_qs = $str_qs . $cle . "=" . urlencode($valeur) . "&";
-    }
-    // On supprime le '&' final s'il existe
-    $str_qs = rtrim($str_qs, "&");
-  } else {
-    // Si $qs est une CdC (note : on suppose qu'elle est déjà encodée)
-    $str_qs = $qs;
-  }
+	// if ($qs != "")	 $qs = urlencode($qs);	
+	// Il faut respecter l'encodage des caractères dans les chaînes de requêtes
+	// NB : Pose des problèmes en cas de valeurs multiples
+	// TODO: Passer un tabAsso en paramètres
+
+	if ($qs != "") $qs = "?$qs";
  
-  if ($str_qs != "") $str_qs = "?$str_qs";
-  header("Location:$url$str_qs"); // envoi par la méthode GET
-  die(""); // interrompt l'interprétation du code 
+	header("Location:$url$qs"); // envoi par la méthode GET
+	die(""); // interrompt l'interprétation du code 
+
+	// TODO: on pourrait passer en parametre le message servant au die...
 }
 
+// TODO: intégrer les redirections vers la page index dans une fonction :
+
+/*
+// Si la page est appelée directement par son adresse, on redirige en passant pas la page index
+if (basename($_SERVER["PHP_SELF"]) != "index.php")
+{
+	header("Location:../index.php");
+	die("");
+}
+*/
 ?>
