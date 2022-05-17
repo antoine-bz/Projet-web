@@ -62,7 +62,7 @@ function isAdmin($idUser)
 function getSecteurs()
 {
 	$SQL ="SELECT nom FROM secteur";
-	return parcoursRs(SQLGetChamp($SQL)); 
+	return parcoursRs(SQLSelect($SQL)); 
 }
 
 

@@ -25,26 +25,32 @@ include_once("libs/maLibForms.php");
 <h1>Inscription</h1>
 	<form action="controleur.php" method="GET">
 	<input type="radio" name="main-categories" id="signinetudiant" value="etudiant" onchange="showSignInEtudiantForm();" checked/>
-	<label for="signinetudiant">étudiant</label>
+	<label for="signinetudiant">Etudiant</label>
 
 	<input type="radio" name="main-categories" id="signinentreprise" value="etudiant"  onchange="showSignInEntrepriseForm();" />
-	<label for="signinentreprise">entreprise</label>
+	<label for="signinentreprise">Entreprise</label>
+	
+		</br>
+		<label for="login"> Login : </label><input type="text" id="login" name="login" /><br />
+		<label for="passe">Passe : </label><input type="password" id="passe" name="passe" /><br />
 
 
 		<div id="signinetudiantform">
+			<label for="nomEtudiant"> Nom :  </label><input type="text" id="nomEtudiant" name="nomEtudiant" /><br />
+			<label for="prenomEtudiant"> Prenom :  </label><input type="text" id="prenomEtudiant" name="prenomEtudiant" /><br />
+		</div>
+
+		<div id="signinentrepriseform">
+
+			<label for="nomEntreprise"> Nom de l'entreprise :  </label><input type="text" id="nomEntreprise" name="nomEntreprise" /><br />
+			<label for="secteurAct"> secteur d'activité :  </label>
 			<?php
 			$carac= getSecteurs();
-			mkSelect("secteur d'activité", $carac, "nom", "nom");
+			mkSelect("secteurAct", $carac, "nom", "nom");
 			?>
-		</div>
-		<div id="signinentrepriseform">
-			entr
-		</div>
-		
 
-
-		<label for="login"> Login : </label><input type="text" id="login" name="login" /><br />
-		<label for="passe">Passe : </label><input type="password" id="passe" name="passe" /><br />
+		</div>
+	
 
 		<input type="submit" name="action" value="S'inscrire" />
 	</form>
