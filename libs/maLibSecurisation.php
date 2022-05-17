@@ -28,6 +28,10 @@ function verifUser($login,$password)
 	// Cas succès : on enregistre pseudo, idUser dans les variables de session 
 	// il faut appeler session_start ! 
 	// Le controleur le fait déjà !!
+	
+	$iduser=getIduser($password,$login);
+	$_SESSION["idUser"] = $iduser;
+
 	$_SESSION["pseudo"] = $login;
 	$_SESSION["idUser"] = $id;
 	$_SESSION["connecte"] = true;

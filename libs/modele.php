@@ -65,24 +65,26 @@ function getSecteurs()
 	return parcoursRs(SQLSelect($SQL)); 
 }
 
+function getIduser($password,$mail)
+{
+	$SQL ="SELECT idConnexion FROM connexion WHERE password='$password' AND mail='$mail'";
+	if(SQLGetChamp($SQL)==NULL) return 0;
+	else return 1; 
+}
+
 function isEntreprise($idUser)
 {
 	// vérifie si l'utilisateur est un entreprise
 	$SQL ="SELECT idEntreprises FROM connexion WHERE idConnexion='$idUser'";
-	SQLGetChamp($SQL);
-	if(SQLGetChamp($SQL))
-		return true;
-	else
-		return false ;
+	if(SQLGetChamp($SQL)==NULL) return 0;
+	else return 1; 
 }
+
 function isEtudiant($idUser)
 {
 	// vérifie si l'utilisateur est un etudiant
 	$SQL ="SELECT idEtudiants FROM connexion WHERE idConnexion='$idUser'";
-	SQLGetChamp($SQL);
-	if(SQLGetChamp($SQL)) return true;
-	else
-		return false ;
+	return SQLGetChamp($SQL);
 }
 	
 ?>

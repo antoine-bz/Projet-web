@@ -7,6 +7,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	die("");
 }
 
+include_once "libs/modele.php";
+
 // Pose qq soucis avec certains serveurs...
 echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 ?>
@@ -37,8 +39,14 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
           <li><a href="index.php?view=recherche" class="nav-link px-1 text-white">Rechercher</a></li>
           <li><a href="index.php?view=depot" class="nav-link px-1 text-white">Dépôt de CV</a></li>
           <?php
-          if (valider("connecte","SESSION")){
-            echo "<li><a href=\"index.php?view=compteEntreprise\" class=\"nav-link px-2 text-white\">Mon compte</a></li>";
+          if (valider("connecte","SESSION")) {
+              $idUser=valider("idUser","SESSION");
+              if(isEtudiant($idUser)){
+                echo "<li><a href=\"index.php?view=compteEtudiant\" class=\"nav-link px-2 text-white\">Mon compte</a></li>";
+              }
+              if(isEntreprise($idUser)){
+                echo "<li><a href=\"index.php?view=compteEntreprise\" class=\"nav-link px-2 text-white\">Mon compte</a></li>";
+              }
           } 
           else{
             echo "<li><a href=\"index.php?view=info\" class=\"nav-link px-2 text-white\">Qui sommes-nous ?</a></li>";

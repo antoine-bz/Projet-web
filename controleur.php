@@ -66,74 +66,7 @@ session_start();
 			case 'Autoriser' : 
 			break;
 
-			case 'Interdire' :  
-			break; 
 			
-			
-			case 'Activer' :
-			if ($idConv = valider("idConv"))  
-			if (valider("connecte","SESSION"))
-			if (valider("isAdmin","SESSION"))
-			{
-				reactiverConversation($idConv);
-			}
-			// On veut envoyer l'identifiant de la conversation manipulée à la vue 
-			// pour que cette conversation soit automatiquement sélectionnée 
-			// dans le menu déroulant
-			// Sol 1 : on renvoie l'id sous forme de QS dans l'URL de redirection
-			// Sol 2 : on pourrait sauvegarder l'identifiant 
-			// dans une variable de session créée dans le controleur 
-			// et relue dans la vue conversation
-			// Ce n'est pas une bonne pratique : on sauvegarde dans les variables 
-			// de session des données pérennes 
-			$qs = "?view=conversations&idConv=$idConv";
-			break; 
-			
-			case 'Archiver' :
-			if ($idConv = valider("idConv"))  
-			if (valider("connecte","SESSION"))
-			if (valider("isAdmin","SESSION")){
-				archiverConversation($idConv);
-			}  
-			$qs = "?view=conversations&idConv=$idConv";
-			break; 
-			
-			case 'Supprimer Conversation' : 
-			if ($idConv = valider("idConv"))  
-			if (valider("connecte","SESSION"))
-			if (valider("isAdmin","SESSION")){
-				supprimerConversation($idConv) ;
-			}
-			$qs = "?view=conversations";
-			break; 
-			
-			case 'Ajouter Conversation' :  
-			$idConv = false;
-			if ($theme = valider("theme"))  
-			if (valider("connecte","SESSION"))
-			if (valider("isAdmin","SESSION")){
-					$idConv = creerConversation($theme) ;
-			}
-			$qs = "?view=conversations&idConv=$idConv";
-			break; 
-			
-			case 'Poster' : 		
-			
-			// Données reçues : contenu=... & idConv...
-			// ET dans une conversation active 	 
-			if ($idConv = valider("idConv")) 
-			if ($contenu = valider("contenu"))
-			if (valider("connecte","SESSION")){
-				$dataConv = getConversation($idConv);
-				if (count($dataConv) > 0)
-				if ($dataConv["active"]) {
-					enregistrerMessage($idConv, valider("idUser","SESSION"), $contenu);
-				}
-			}
-			$qs = "?view=chat&idConv=$idConv";
-			break;
-
-
 		}
 
 	}
