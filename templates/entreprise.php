@@ -20,11 +20,15 @@ include_once("libs/maLibForms.php");
 
 
 ?>
+<link rel="stylesheet" type="text/css" href="css/styleentreprise.css">
 <h1>Inscrivez vous avec un compte entreprise</h1>
-<p> Avec 2i'ndeed,
-	vous pouvez créer votre compte entreprise et vous ajouter des étudiants à votre liste d'étudiants.
-	Vous pourrez ainsi poster des offres de stage qui seront visible par les etudiants
-	Consulter les cv des etudiant et contactez les.
-</p>
-
-<a href="index.php?view=inscription&entreprise=1" class="nav-link px-2 text-black">S'inscrire</a>
+<div class="para">
+	<p> Avec 2i'ndeed,
+		vous pouvez créer votre compte entreprise et vous ajouter des étudiants à votre liste d'étudiants.
+		Vous pourrez ainsi poster des offres<br/> de stage qui seront visible par les etudiants
+		Consulter les cv des etudiant et contactez les.
+	</p>
+</div>
+<div class="inscrire">
+	<a href="index.php?view=inscription&entreprise=1" class="nav-link px-2">S'inscrire</a>
+</div>

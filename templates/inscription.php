@@ -20,7 +20,7 @@ include_once("libs/maLibForms.php");
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+<link rel="stylesheet" type="text/css" href="css/styleinscr.css">
 <div id="formSignin">
 <h1>Inscription</h1>
 	<form action="controleur.php" method="GET">
@@ -52,7 +52,7 @@ include_once("libs/maLibForms.php");
 
 		</div>
 	
-		<input type="submit" name="action" value="S'inscrire" />
+		<input type="submit" id="inscription" name="action" value="S'inscrire" />
 	</form>
 </div>
 

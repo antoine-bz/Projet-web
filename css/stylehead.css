@@ -3,21 +3,22 @@
 }
 
 .logo img {
-	width: 20%;
-	height: 20%;
+	width: 15%;
+	height: 15%;
 	margin-left: -18%;
 	margin-top: 3%;
 }
 
 .mb-md-0 a {
-	margin-left: 8%;
-	margin-top: -33%;
+	margin-left: -20%;
+	margin-top: -37%;
 	width: 180px;
 	text-align: center;
 }
 
 .mb-md-0 a:hover {
-  background-color: #ff9900;
+  background-color: #b5bd00;
+  margin-top: -40%;
 }
 
 .text-end {

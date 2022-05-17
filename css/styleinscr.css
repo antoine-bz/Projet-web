@@ -1,0 +1,88 @@
+h1{
+	text-align: center;
+	margin-top: 1%;
+}
+
+label {
+	font-size: 120%;
+}
+
+form {
+	text-align: center;
+	margin-top: 1%;
+}
+
+input {
+	margin-left: 1%;
+}
+
+#mail {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.3%;
+}
+
+#password {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.3%;
+}
+
+#nomEtudiant {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.3%;
+}
+
+#prenomEtudiant {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.3%;
+}
+
+#nomEntreprise {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.3%;
+}
+
+select {
+	width: 12.5%;
+	height: 12.5%;
+	font-size: 110%;
+	border-radius: 7px;
+	border: 0.5px solid;
+	margin-top: 0.7%;
+}
+
+#inscription {
+	height: 40%;
+    width: 8%;
+    font-size: 110%;
+    background-color: #b5bd00;
+    border-radius: 10px;
+    border-color: #b5bd00;
+    margin-top: 1%;
+    color: #fff;
+    border: 0.5px solid;
+}
+
+#inscription:hover {
+    background-color: #A8B002;
+    border-color: #A8B002;
+}

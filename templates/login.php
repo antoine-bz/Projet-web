@@ -33,11 +33,11 @@ if ($checked = valider("remember", "COOKIE")) $checked = "checked";
 
 <div id="formLogin">
 <form action="controleur.php" method="GET">
-<label for="login"> Login : </label><input type="text" id="login" name="login" value="<?php echo $login;?>" /><br />
-<label for="passe">Passe : </label><input type="password" id="passe" name="passe" value="<?php echo $passe;?>" /><br />
+<label for="login"> Login : </label><input type="text" id="login" name="login" value="<?php echo $login;?>" /><br/>
+<label for="passe">Passe : </label><input type="password" id="passe" name="passe" value="<?php echo $passe;?>" /><br/>
 <label for="remember">Se souvenir de moi </label><input type="checkbox" <?php echo $checked;?> name="remember" id="remember" value="ok"/> <br />
 
-<input type="submit" name="action" value="Connexion" />
+<input type="submit" name="action" id="connexion" value="Connexion" />
 </form>
 </div>
 

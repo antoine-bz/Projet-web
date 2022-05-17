@@ -1,48 +1,52 @@
 #ou {
 	border: 1.5px solid;
 	border-radius: 30px;
-	margin-left: 20%;
-	height: 40px;
-    width: 400px;
-    font-size: 1.5em;
+	margin-left: 39.5%;
+	height: 30%;
+    width: 21%;
+    font-size: 160%;
     text-align: center;
+    display: block;
 }
 
 #quoi {
 	border: 1.5px solid;
 	border-radius: 20px;
-	margin-left: 45%;
-	height: 40px;
-    width: 400px;
-    font-size: 1.5em;
+	margin-left: 39.5%;
+	height: 30%;
+    width: 21%;
+    font-size: 160%;
     text-align: center;
-    position: fixed;
-    margin-top: -2%;
+    display: block;
 }
 
 #rechercher {
-	margin-left: 37.7%;
-	height: 40px;
-    width: 200px;
-    background-color: #ff9900;
+	margin-left: 45%;
+	height: 40%;
+    width: 10%;
+    background-color: #b5bd00;
     border-radius: 10px;
-    border-color: #ff9900;
+    border-color: #b5bd00;
     color: #fff;
+    display: block;
+    font-size: 140%;
+    border: 0.5px solid;
 }
 
 #rechercher:hover {
-    background-color: #EA9413;
+    background-color: #A8B002;
+    border-color: #A8B002;
 }
 
 h1 {
-	margin-left: 5%;
+	text-align: center;
 	margin-top: 1%;
 }
 
 h5 {
-	margin-left: 7%;
+	text-align: center;
 }
 
 h3 {
-	margin-left: 7%;
+	margin-left: 17%;
 }

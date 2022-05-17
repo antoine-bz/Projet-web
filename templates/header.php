@@ -19,8 +19,8 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <head>	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>2i'ndeed</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrapp.css">
-	<link rel="stylesheet" type="text/css" href="css/styleheader.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/stylehead.css">
 
 </head>
 <!-- **** F I N **** H E A D **** -->
@@ -30,7 +30,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <body>
   <header class="p-1 bg-primary text-white">
     <div class="container">
-      <a class="logo" href="index.php?view=accueil"><img src="ressources/logoweb.png" alt="Logo"></a>
+      <a class="logo" href="index.php?view=accueil"><img src="ressources/logosite.png" alt="Logo"></a>
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>

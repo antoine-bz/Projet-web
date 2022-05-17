@@ -1,19 +1,50 @@
-h1{
-	text-align: center;
-	margin-top: 1%;
-}
-
-label {
-	font-size: 120%;
-}
-
-form {
-	text-align: center;
+h1 {
+    text-align: center;
 }
 
 input {
-	margin-left: 1%;
+    margin-left: 1%;
 }
-#signinentrepriseform{
-	display: none;
+
+form {
+    text-align: center;
+    margin-top: 1%;
+}
+
+#login {
+    width: 12.5%;
+    height: 12.5%;
+    font-size: 110%;
+    border-radius: 7px;
+    border: 0.5px solid;
+}
+
+#passe {
+    width: 12.5%;
+    height: 12.5%;
+    font-size: 110%;
+    border-radius: 7px;
+    border: 0.5px solid;
+    margin-top: 0.5%;
+}
+
+#connexion {
+    height: 40%;
+    width: 8%;
+    font-size: 110%;
+    background-color: #b5bd00;
+    border-radius: 10px;
+    border-color: #b5bd00;
+    margin-top: 1%;
+    color: #fff;
+    border: 0.5px solid;
+}
+
+#connexion:hover {
+    background-color: #A8B002;
+    border-color: #A8B002;
+}
+
+#remember {
+    margin-top: 1%;
 }

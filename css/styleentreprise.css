@@ -1,0 +1,27 @@
+h1{
+	text-align: center;
+	margin-top: 1%;
+}
+
+.para p{
+	font-size: 120%;
+	margin-left: 17%;
+}
+
+.inscrire a {
+	margin-left: 45%;
+	height: 40%;
+    width: 10%;
+    background-color: #b5bd00;
+    border-radius: 10px;
+    border-color: #b5bd00;
+    font-size: 140%;
+    text-align: center;
+    color: white;
+}
+
+.inscrire a:hover {
+	background-color: #A8B002;
+    border-color: #A8B002;
+    color: #fff;
+}

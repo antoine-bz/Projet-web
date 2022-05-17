@@ -21,7 +21,7 @@ include_once("libs/maLibForms.php");
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/styleac.css">
+<link rel="stylesheet" type="text/css" href="css/styleacc.css">
 <div id="corps">
 
 <h1>Bienvenue sur 2i'ndeed !</h1>
