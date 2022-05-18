@@ -1,80 +1,71 @@
-.seemore{
-    float: right;
-    position: relative;
-    padding-bottom: 8px;
-    padding-right: 20px;
-
-}
-#lastannonces{
-    margin-left: 20%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-
-}
-
-#lastannonces > .previewAnnonce{
-    border: 0.5px solid;
-    width: 30%;
-    height: 30%;
-    float: left;
-    margin: 5px;
-    padding-top: 8px;
-    padding-left: 8px;
-    position: relative;
-    border-radius: 5px;
-}
-
-#ou {
-	border: 1.5px solid;
-	border-radius: 30px;
-	margin-left: 39.5%;
-	height: 30%;
-    width: 21%;
-    font-size: 160%;
+#Ville {
     text-align: center;
-    display: block;
+    border-radius: 4%;
 }
 
-#quoi {
-	border: 1.5px solid;
-	border-radius: 20px;
-	margin-left: 39.5%;
-	height: 30%;
-    width: 21%;
-    font-size: 160%;
+#Secteur {
     text-align: center;
-    display: block;
+    border-radius: 4%;
 }
 
-#rechercher {
-	margin-left: 45%;
-	height: 40%;
-    width: 10%;
-    background-color: #b5bd00;
-    border-radius: 10px;
-    border-color: #b5bd00;
-    color: #fff;
-    display: block;
-    font-size: 140%;
-    border: 0.5px solid;
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-#rechercher:hover {
-    background-color: #A8B002;
-    border-color: #A8B002;
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin h5 {
+  font-size: 120%;
+  text-align: ;
+}
+
 
 h1 {
 	text-align: center;
 	margin-top: 1%;
 }
 
-h5 {
-	text-align: center;
+h3 {
+	margin-left: 15.5%;
 }
 
-h3 {
-	margin-left: 17%;
+#lastannonces {
+    margin-left: 15%;
+    margin-right: 20%;
+    margin-bottom: 25%;
 }
+
+.mb-1 {
+    float: left;
+    position: relative;
+}
+
+.stretched-link {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 85px;
+    background-color: #118AC4;
+    padding: 4px;
+}
+
+.stretched-link:hover {
+    background-color: #1179AB;
+    color: #fff;
+}
+
 
 

@@ -66,7 +66,7 @@ if ($msg) {
 			mkSelect("secteurAct", $carac, "idSecteur", "nom");
 			?>
 	</div>
-    <br/><input class="w-100 btn btn-lg btn-secondary" type="submit" id="inscription" name="action" value="S'inscrire" />
+    <br/><input class="w-100 btn btn-lg btn-secondary" type="submit" id="inscription" name="action" value="Inscription" />
   </form>
 </div>
 </main>

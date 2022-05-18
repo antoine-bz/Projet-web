@@ -21,18 +21,18 @@ include_once("libs/maLibForms.php");
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/styleaccueil.css">
+<link rel="stylesheet" type="text/css" href="css/styleacc.css">
 <div id="corps">
 
 <h1>Bienvenue sur 2i'ndeed !</h1>
-<br/>
-<h5>Rechercher votre stage :</h5>
-<br/>
+<main class="form-signin w-30 m-auto">
 <form action="controleur.php" method="GET">
-    <input class="form-control form-control-lg" id="Ville" type="text" placeholder="Ville"><br/>
+    <h5 class="h3 mb-3 fw-normal">Rechercher votre stage :</h5>
+    <input class="form-control form-control-lg" id="Ville" type="text" placeholder="Ville">
     <input class="form-control form-control-lg" id="Secteur" type="text" placeholder="Secteur"><br/>
-    <button type="submit" id="btn_recherche" class="btn btn-secondary mb-2">Rechercher</button>
+    <input type="submit" id="btn_recherche" class="w-100 btn btn-lg btn-secondary" name="action" value="Rechercher"/>
 </form>
+</main>
 <br/>
 <br/>
 <u><h3>Dernières annonces :</h3></u>

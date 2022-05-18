@@ -125,7 +125,7 @@ function getAnnonce($idAnnonce){
 }
 
 function getLastAnnonce(){
-	$SQL ="SELECT idAnnonces FROM annonces ORDER BY date DESC LIMIT 3";
+	$SQL ="SELECT idAnnonces FROM annonces ORDER BY date DESC LIMIT 4";
 	return parcoursRs(SQLSelect($SQL)); 
 }
 

@@ -20,15 +20,26 @@ include_once("libs/maLibForms.php");
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/styleentreprise.css">
-<h1>Inscrivez vous avec un compte entreprise</h1>
-<br/>
-<div class="para">
-	<p> Avec 2i'ndeed,
-		vous pouvez créer votre compte entreprise afin de poster des offres de stage qui seront visible par les etudiants, par la suite vous pourrez<br/> consulter et étudier les CV des étudiants qui ont choisis une de vos annonces puis par la suite vous jugerez si ce CV est à la hauteur de vos attentes en<br/> retournant à l'étudiant une réponse positive ou négative.
-	</p>
-</div>
-<br/>
-<div class="inscrire">
-	<a href="index.php?view=inscription&entreprise=1" class="btn btn-secondary mb-2">S'inscrire</a>
-</div>
+<link rel="stylesheet" type="text/css" href="css/styleentrep.css">
+<main>
+    <h1>Inscrivez vous avec un compte entreprise</h1><br/>
+    <p class="fs-5 col-md-8">Vous pouvez créer votre compte entreprise afin de poster des offres de stage qui seront visible par les etudiants, par la suite vous pourrez consulter et étudier les CV des étudiants qui ont choisis une de vos annonces puis par la suite vous jugerez si ce CV est à la hauteur de vos attentes en retournant à l'étudiant une réponse positive ou négative.</p><br/>
+
+    <div class="mb-5">
+      <a href="index.php?view=inscription&entreprise=1" class="btn btn-secondary btn-lg px-4">S'inscrire en tant qu'entreprise</a>
+    </div>
+
+    <hr class="col-3 col-md-2 mb-5">
+
+    <div class="row g-5">
+      <div class="col-md-6">
+        <h2>Commencer à publier vos annonces !</h2>
+        <p>En créant votre compte entreprise, vous pourrez directement publier vos premières annonces !</p>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Répondez aux annonces</h2>
+        <p>En recevant les CV des étudiants vous pouvez répondre positivement ou négativement à leur demande.</p>
+      </div>
+    </div>
+  </main>

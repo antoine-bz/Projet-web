@@ -19,10 +19,10 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 <!-- **** H E A D **** -->
 <head>	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="icon" href="ressources/logo.png" />
+  <link rel="icon" href="ressources/logonglet.png" />
 	<title>2i'ndeed</title>
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/styleheade.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrapp.css">
+	<link rel="stylesheet" type="text/css" href="css/stylehead.css">
   <script src="js/script.js"></script>
 
 </head>
@@ -37,7 +37,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
-         <a class="logo" href="index.php?view=accueil"><img src="ressources/logosite.png" alt="Logo"></a>
+         <a class="logo" href="index.php?view=accueil"><img src="ressources/logoweb.png" alt="Logo"></a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <?php
           if (valider("connecte","SESSION")) {
