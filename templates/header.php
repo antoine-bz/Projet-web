@@ -22,7 +22,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
   <link rel="icon" href="ressources/logo.png" />
 	<title>2i'ndeed</title>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/styleheader.css">
+	<link rel="stylesheet" type="text/css" href="css/styleheade.css">
   <script src="js/script.js"></script>
 
 </head>

@@ -1,41 +1,18 @@
-#ou {
-	border: 1.5px solid;
-	border-radius: 30px;
-	margin-left: 39.5%;
-	height: 30%;
-    width: 21%;
-    font-size: 140%;
+#Ville {
+    width: 20%;
     text-align: center;
-    display: block;
+    margin: auto;
+    margin-top: -1%;
 }
 
-#quoi {
-	border: 1.5px solid;
-	border-radius: 20px;
-	margin-left: 39.5%;
-	height: 30%;
-    width: 21%;
-    font-size: 140%;
+#Secteur {
+    width: 20%;
     text-align: center;
-    display: block;
+    margin: auto;
 }
 
-#rechercher {
-	margin-left: 45%;
-	height: 40%;
-    width: 10%;
-    background-color: #b5bd00;
-    border-radius: 10px;
-    border-color: #b5bd00;
-    color: #fff;
-    display: block;
-    font-size: 140%;
-    border: 0.5px solid;
-}
-
-#rechercher:hover {
-    background-color: #A8B002;
-    border-color: #A8B002;
+#btn_recherche {
+    margin-left: 47%;
 }
 
 h1 {
@@ -51,7 +28,14 @@ h3 {
 	margin-left: 17%;
 }
 
-.col-md-2 {
-    margin-left: 17%;
+#lastannonces {
+    margin-left: 15%;
+    margin-right: 20%;
+    margin-bottom: 25%;
+}
+
+.mb-1 {
+    float: left;
+    position: relative;
 }
 

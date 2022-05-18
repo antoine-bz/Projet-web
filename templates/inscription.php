@@ -20,45 +20,54 @@ include_once("libs/maLibForms.php");
 $msg = valider("msg"); 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/styleinscr.css">
+<link rel="stylesheet" type="text/css" href="css/styleinscri.css">
 <div id="formSignin">
-<h1>Inscription</h1>
 <?php
 if ($msg) {
 	echo "<h3 style=\"color:red;\">" . $msg ."</h3>";
 }
 ?>
-	<form action="controleur.php" method="GET">
-	<input type="radio" name="main-categories" id="signinetudiant" value="1" onchange="showSignInEtudiantForm();"
+<main class="form-signin w-100 m-auto">
+<form action="controleur.php" method="GET">
+    <h1 class="h3 mb-3 fw-normal">Inscription</h1>
+    <input type="radio" name="main-categories" id="signinetudiant" value="1" onchange="showSignInEtudiantForm();"
 	<?php if(!$login = valider("entreprise")) echo "checked";?>/>
 	<label for="signinetudiant">Etudiant</label>
 
 	<input type="radio" name="main-categories" id="signinentreprise" value="2"  onchange="showSignInEntrepriseForm();"
 	<?php if($login = valider("entreprise")) echo "checked";?>/>
-	<label for="signinentreprise">Entreprise</label>
-	
-		</br>
-		<label for="login"> Adresse mail : </label><input type="text" id="mail" name="mail" /><br />
-		<label for="password">Mot de passe : </label><input type="password" id="password" name="password" /><br />
-
-
-		<div id="signinetudiantform"<?php if($login = valider("entreprise")) echo "style=\"display: none;\""?>>
-			<label for="nomEtudiant"> Nom :  </label><input type="text" id="nomEtudiant" name="nomEtudiant" /><br />
-			<label for="prenomEtudiant"> Prenom :  </label><input type="text" id="prenomEtudiant" name="prenomEtudiant" /><br />
-		</div>
-
-		<div id="signinentrepriseform"<?php if($login = valider("entreprise")) echo "style=\"display: block;\""?>>
-
-			<label for="nomEntreprise"> Nom de l'entreprise :  </label><input type="text" id="nomEntreprise" name="nomEntreprise" /><br />
+	<label for="signinentreprise">Entreprise</label><br/><br/>
+    <div class="form-floating">
+      <input type="email" class="form-control" name="mail" id="floatingInput mail" placeholder="name@example.com">
+      <label for="floatingInput">Adresse email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="floatingPassword password" placeholder="Password" >
+      <label for="floatingPassword">Mot de passe</label>
+    </div>
+    <div id="signinetudiantform"<?php if($login = valider("entreprise")) echo "style=\"display: none;\""?>>
+    	<div class="form-floating">
+      		<input type="nom" class="form-control" id="floatingInput nomEtudiant" name="nomEtudiant" placeholder="name@example.com">
+      		<label for="floatingInput">Nom</label>
+    	</div>
+    	<div class="form-floating">
+      		<input type="prenom" class="form-control" id="floatingPassword prenomEtudiant" name="prenomEtudiant" placeholder="Password">
+      		<label for="floatingPassword">Prenom</label>
+    	</div>
+	</div>
+	<div id="signinentrepriseform"<?php if($login = valider("entreprise")) echo "style=\"display: block;\""?>>
+			<div class="form-floating">
+				<input type="nomEntreprise" class="form-control" id="floatingInput nomEntreprise" name="nomEntreprise" placeholder="nom entreprise">
+				<label for="floatingInput">Nom de l'entreprise</label>
+			</div><br/>
 			<label for="secteurAct"> Secteur d'activité :  </label>
 			<?php
 			$carac= getSecteurs();
 			mkSelect("secteurAct", $carac, "idSecteur", "nom");
 			?>
-
-		</div>
-	
-		<input type="submit" id="inscription" name="action" value="Inscription" />
-	</form>
+	</div>
+    <br/><input class="w-100 btn btn-lg btn-secondary" type="submit" id="inscription" name="action" value="S'inscrire" />
+  </form>
 </div>
+</main>
 

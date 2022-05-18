@@ -21,7 +21,7 @@ function mkAnnoncePreview($idAnnonce,$classname = "previewAnnonce")
 
 
     echo"<div class=\"row mb-1\">";
-    echo"<div class=\"col-md-2\">";
+    echo"<div class=\"col-md-11\">";
     echo"<div class=\"row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative\">";
     echo"<div class=\"col p-4 d-flex flex-column position-static\">";
     echo"<strong class=\"d-inline-block mb-2 text-primary\">$nom</strong>";

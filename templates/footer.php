@@ -22,7 +22,7 @@ if (valider("connecte","SESSION")) {
 }*/
 ?>
 
-<br>
+<br/>
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
@@ -33,7 +33,6 @@ if (valider("connecte","SESSION")) {
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="index.php?view=accueil" class="nav-link px-2 text-muted">Accueil</a></li>
-      <li class="nav-item"><a href="index.php?view=depot" class="nav-link px-2 text-muted">Dépôt de CV</a></li>
       <li class="nav-item"><a href="index.php?view=info" class="nav-link px-2 text-muted">Qui sommes-nous ?</a></li>
       <li class="nav-item"><a href="index.php?view=entreprise" class="nav-link px-2 text-muted">Entreprise</a></li>
     </ul>

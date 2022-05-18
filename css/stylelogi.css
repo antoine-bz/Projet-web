@@ -1,0 +1,31 @@
+form {
+    text-align: center;
+}
+
+#remember {
+    margin-top: 1%;
+}
+
+.form-floating input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 15%;
+  margin: auto;
+}
+
+.form-floating input[type="mail"] {
+  margin-bottom: -5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 15%;
+  margin: auto;
+}
+
+.form-floating label {
+    margin-left: 42.5%;
+}
+
+.souviens label {
+    margin-top: 0.7%;
+}

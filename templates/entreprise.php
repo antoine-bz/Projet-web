@@ -30,5 +30,5 @@ include_once("libs/maLibForms.php");
 </div>
 <br/>
 <div class="inscrire">
-	<a href="index.php?view=inscription&entreprise=1" class="nav-link px-2">S'inscrire</a>
+	<a href="index.php?view=inscription&entreprise=1" class="btn btn-secondary mb-2">S'inscrire</a>
 </div>

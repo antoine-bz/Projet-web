@@ -29,9 +29,9 @@ include_once("libs/maLibForms.php");
 <h5>Rechercher votre stage :</h5>
 <br/>
 <form action="controleur.php" method="GET">
-	<input type="text" id="ou" name="ou" placeholder="Ville"/><br/>
-	<input type="text" id="quoi" name="quoi" placeholder="Secteur"/><br/>
-	<input type="submit" id="rechercher" name="action" value="Rechercher"/>
+    <input class="form-control form-control-lg" id="Ville" type="text" placeholder="Ville"><br/>
+    <input class="form-control form-control-lg" id="Secteur" type="text" placeholder="Secteur"><br/>
+    <button type="submit" id="btn_recherche" class="btn btn-secondary mb-2">Rechercher</button>
 </form>
 <br/>
 <br/>
