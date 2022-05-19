@@ -25,6 +25,7 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 	<link rel="stylesheet" type="text/css" href="css/stylehead.css">
   <script src="js/script.js"></script>
 
+
 </head>
 <!-- **** F I N **** H E A D **** -->
 
@@ -79,7 +80,9 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
   </header>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://developers.chatbot.tn/assets/chatbox/chatbot.tn.js"></script>
+<script>$("body").chatbot({"uid":"751c094d1c6bf9c7bb9a385dd86dd4df7645dev470"});</script>
 
 
 

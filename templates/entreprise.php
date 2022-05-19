@@ -20,7 +20,7 @@ include_once("libs/maLibForms.php");
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/styleentrep.css">
+<link rel="stylesheet" type="text/css" href="css/styleentrepri.css">
 <main>
     <h1>Inscrivez vous avec un compte entreprise</h1><br/>
     <p class="fs-5 col-md-8">Vous pouvez créer votre compte entreprise afin de poster des offres de stage qui seront visible par les etudiants, par la suite vous pourrez consulter et étudier les CV des étudiants qui ont choisis une de vos annonces puis par la suite vous jugerez si ce CV est à la hauteur de vos attentes en retournant à l'étudiant une réponse positive ou négative.</p><br/>
@@ -34,12 +34,11 @@ include_once("libs/maLibForms.php");
     <div class="row g-5">
       <div class="col-md-6">
         <h2>Commencer à publier vos annonces !</h2>
-        <p>En créant votre compte entreprise, vous pourrez directement publier vos premières annonces !</p>
+        <p>En créant votre compte entreprise, vous pourrez directement publier <br/>vos premières annonces !</p>
       </div>
-
       <div class="col-md-6">
         <h2>Répondez aux annonces</h2>
-        <p>En recevant les CV des étudiants vous pouvez répondre positivement ou négativement à leur demande.</p>
+        <p>En recevant les CV des étudiants vous pouvez répondre positivement<br/> ou négativement à leur demande.</p>
       </div>
     </div>
   </main>

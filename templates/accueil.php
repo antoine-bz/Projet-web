@@ -21,7 +21,7 @@ include_once("libs/maLibForms.php");
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/styleacc.css">
+<link rel="stylesheet" type="text/css" href="css/styleaccueil.css">
 <div id="corps">
 
 <h1>Bienvenue sur 2i'ndeed !</h1>
@@ -35,7 +35,7 @@ include_once("libs/maLibForms.php");
 </main>
 <br/>
 <br/>
-<u><h3>Dernières annonces :</h3></u>
+<u><h3>Dernières annonces</h3></u>
 <br/>
 <div id="lastannonces">
     <?php

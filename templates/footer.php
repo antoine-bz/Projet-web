@@ -21,7 +21,7 @@ if (valider("connecte","SESSION")) {
 	echo '<a href="controleur.php?action=logout">Me déconnecter</a>'; 
 }*/
 ?>
-
+<link rel="stylesheet" type="text/css" href="css/stylefooter.css">
 <br/>
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
