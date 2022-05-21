@@ -28,8 +28,8 @@ include_once("libs/maLibForms.php");
 <main class="form-signin w-30 m-auto">
 <form action="controleur.php" method="GET">
     <h5 class="h3 mb-3 fw-normal">Rechercher votre stage :</h5>
-    <input class="form-control form-control-lg" id="Ville" type="text" placeholder="Ville">
-    <input class="form-control form-control-lg" id="Secteur" type="text" placeholder="Secteur"><br/>
+    <input class="form-control form-control-lg" name="Ville" id="Ville" type="text" placeholder="Ville">
+    <input class="form-control form-control-lg" name="Secteur" id="Secteur" type="text" placeholder="Secteur"><br/>
     <input type="submit" id="btn_recherche" class="w-100 btn btn-lg btn-secondary" name="action" value="Rechercher"/>
 </form>
 </main>

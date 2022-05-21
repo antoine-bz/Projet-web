@@ -32,7 +32,7 @@ session_start();
 			// Connexion //////////////////////////////////////////////////
 			case 'Connexion' :
 				// On verifie la presence des champs login et passe
-				$qs = "?view=login&msg=" . urlencode("Login ou mot de passe manquant");
+				$qs = "?view=login&erreur=1&msg=" . urlencode("Login ou mot de passe manquant");
 				if ($login = valider("login"))
 				if ($passe = valider("passe"))
 				{
@@ -52,7 +52,7 @@ session_start();
 						}
 						$qs = "?view=accueil";
 					}
-					else $qs = "?view=login&msg=" . urlencode("Identifiants incorrects");
+					else $qs = "?view=login&erreur=1&msg=" . urlencode("Identifiants incorrects");
 		
 				}
 
@@ -69,6 +69,7 @@ session_start();
 
 			case "Inscription" :
 				
+				$qs = "?view=inscription&erreur=1&msg=" . urlencode("Identifiants manquants");
 				if ($mail = valider("mail"))
 				if ($password = valider("password")){
 					$qs = "?view=inscription"; 
@@ -83,7 +84,7 @@ session_start();
 								$qs = "?view=inscription&msg=" . urlencode("Création réussie, connectez-vous"); 
 							}
 							else//Si les informations sont incorrectes
-							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects");
+							$qs = "?view=inscription&erreur=1&msg=" . urlencode("Identifiants incorrects");
 							break;
 						case '2':
 							if ($nomEntreprise = valider("nomEntreprise"))
@@ -95,10 +96,10 @@ session_start();
 								$qs = "?view=inscription&msg=" . urlencode("Création réussie, connectez-vous"); 
 							}
 							else //Si les informations sont incorrectes
-							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects");
+							$qs = "?view=inscription&erreur=1&msg=" . urlencode("Identifiants incorrects");
 							break;
 						default:
-							$qs = "?view=inscription&msg=" . urlencode("Identifiants incorrects case");
+							$qs = "?view=inscription&erreur=1&msg=" . urlencode("Identifiants incorrects case");
 							break;
 					}
 				}
@@ -106,8 +107,46 @@ session_start();
 				// traitement métier
 				// redirection vers la vue suivante
 			break;
+			case "Rechercher" :
+				$secteur = valider("Secteur");
+				$ville = valider("Ville" );
+				$qs = "?view=recherche&type=r&secteur=" . urlencode($secteur). "&ville=" . urlencode($ville);
+				break;
+			case 'Filtrer':
+				$secteur = valider("Secteur");
+				$ville = valider("Ville" );
+				$Remuneration =valider("Remuneration");
+				$Activité =valider("secteurAct");
+				$DureeMin =valider("DuréeMin");
+				$Publiee =valider("FiltrePubli");
+				$TypeStage =valider("TypeStage");
+				$DureeMax =valider("DuréeMax");
+				$qs = "?view=recherche&type=f&secteur=" . urlencode($secteur). "&ville=" . urlencode($ville);
+				$qs .= "&Remuneration=" . urlencode($Remuneration). "&Activité=" . urlencode($Activité);
+				$qs .= "&DureeMin=" . urlencode($DureeMin). "&Publiee=" . urlencode($Publiee);
+				$qs .= "&TypeStage=" . urlencode($TypeStage);
+				$qs .= "&DureeMax=" . urlencode($DureeMax);
+				break;
 
-			
+				case 'Enregistrer' :
+				case 'Modifier':
+					$idUser = valider("idUser","SESSION");
+					//echo $idUser;
+					if(isEntreprise($idUser)){
+						
+						if($modif = valider("modif")){
+							$idEntreprises=getIdentreprises(valider("idUser","SESSION"));
+							$nom=valider("nom");
+							$adresse=valider("adresse");
+							$telephone=valider("telephone");
+							$mail=valider("mail");
+							$password=valider("password");
+							UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone);
+							UpdateConnexion($idUser,$mail,$password);
+							$qs = "?view=compteEntreprise";
+						}
+						else $qs = "?view=compteEntreprise&modifier=1";
+					}	
 		}
 
 	}
