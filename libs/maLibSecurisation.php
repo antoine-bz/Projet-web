@@ -23,7 +23,7 @@ function verifUser($login,$password)
 	
 	$id = verifUserBdd($login,$password);
 
-	if (!$id) return false;
+	if (!$id) return false; 
 
 	// Cas succès : on enregistre pseudo, idUser dans les variables de session 
 	// il faut appeler session_start ! 

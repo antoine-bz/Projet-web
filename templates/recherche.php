@@ -41,46 +41,81 @@ $filtreTime=[["label"=>"Date de publication","value"=>$def],
 
 
 
-?>
-<form action="controleur.php" method="GET">
-		<h5 class="h3 mb-3 fw-normal">Rechercher votre stage :</h5>
-		<input class="form-control form-control-lg" name="Ville" id="Ville" type="text" placeholder="Ville">
-		<input class="form-control form-control-lg" name="Secteur" id="Secteur" type="text" placeholder="Secteur">
-		<input type="submit" id="btn_recherche" class="w-100 btn btn-lg btn-secondary" name="action" value="Rechercher"/>
-	
-		<label for="interet"> Durée minimal (mois):  </label>
-	<input class="form-control form-control-lg" name="DuréeMin" id="DuréeMin" type="text" placeholder="durée minimal (mois)">
-	<label for="interet"> Durée maximum (mois):  </label>
-	<input class="form-control form-control-lg" name="DuréeMax" id="DuréeMax" type="text" placeholder="durée maximum (mois)">
-	<label for="Rémunération"> Rémunération :  </label>
-	<input type="checkbox" id="Remuneration" name="Remuneration" class="checkbox" /><br/>
-	<?php
-	$carac= getSecteurs();
-	echo "<select class=\"form-control\" id=\"secteurAct\" name=\"secteurAct\">\n";
-	echo "<option value=\"Tous\">Secteur d'activité</option>\n";
-	foreach($carac as $type)
-	{
-		echo "<option value=\"".$type["idSecteur"]."\">".$type["nom"]."</option>\n";
-	}
-	echo "</select>\n";
-	?>
-	<?php
-	mkSelect("FiltrePubli", $filtreTime, "value", "label");
-	?>
-	<?php
-	$TypeAnnonce=getTypeAnnonce();
-	//echo json_encode($TypeAnnonce);
-	echo "<select class=\"form-control\" id=\"TypeStage\" name=\"TypeStage\">\n";
-	echo "<option value=\"Tous\">Type de stage</option>\n";
-	foreach($TypeAnnonce as $type)
-	{
-		echo "<option value=\"".$type["type"]."\">".$type["type"]."</option>\n";
-	}
-	echo "</select>\n";
-	?>
-	<input type="submit" id="btn_recherche" class="w-100 btn btn-lg btn-secondary" name="action" value="Filtrer"/>
 
-</form>
+
+$Ville =valider("ville");
+$Secteur =valider("secteur");
+$Remuneration =valider("Remuneration");
+$Activité =valider("Activité");
+$DureeMin =valider("DureeMin");
+$Publiee =valider("Publiee");
+$TypeStage =valider("TypeStage");
+$DureeMax =valider("DureeMax");
+
+?>
+
+<link rel="stylesheet" type="text/css" href="css/stylerech.css">
+<main class="form-signin w-30 m-auto">
+	<div class="formLogin">
+		<form action="controleur.php" method="GET">
+			<h1 class="h3 mb-3 fw-normal">Rechercher votre stage :</h1>
+			<div class="form-floating">
+    			<input type="text" class="form-control" name="Ville" id="floatingInput Ville" placeholder="Ville" value="<?php echo $Ville; ?>"/>
+      			<label for="floatingInput">Ville</label>
+  			</div>
+  			<div class="form-floating">
+      			<input type="text" class="form-control" name="Secteur" id="floatingPassword Secteur" placeholder="Secteur" value="<?php echo $Secteur; ?>"/>
+      			<label for="floatingInput">Secteur</label>
+  			</div>
+			<br/>
+			<input class="w-100 btn btn-lg btn-secondary" type="submit" id="btn_recherche" name="action" value="Rechercher" />
+
+			<div class="dropdown-menu dropdown-menu-dark d-block position-static border-0 pt-0 rounded-3 shadow overflow-hidden w-280px">
+				<h1 class="h3 mb-3 fw-normal">Filtrage</h1>
+				<form class="p-2 mb-2 bg-dark border-bottom border-dark">
+    				<input type="search" class="form-control form-control-dark" name="DuréeMin" id="DuréeMin" autocomplete="false" placeholder="Durée minimale (mois)" value="<?php echo $DureeMin; ?>">
+      				<input type="search" class="form-control form-control-dark" name="DuréeMax" id="DuréeMax" autocomplete="false" placeholder="Durée maximale (mois)" value="<?php echo $DureeMax; ?>">
+    			</form>
+				<div class="form-check">
+  					<input class="form-check-input checkbox" type="checkbox" name="Remuneration" id="flexCheckDefault Remunération" <?php if($Remuneration) echo "checked"; ?>/>
+  					<label class="form-check-label" for="flexCheckDefault">
+    				Rémunération
+  					</label>
+  				</div>
+    			<ul class="list-unstyled mb-0">
+    				<?php
+						$carac= getSecteurs();
+						echo "<select class=\"form-select form-select-sm\" id=\"secteurAct\" name=\"secteurAct\">\n";
+						echo "<option value=\"Tous\">Secteur d'activité</option>\n";
+						foreach($carac as $type)
+						{
+							echo "<option value=\"".$type["idSecteur"]."\"";
+							if($type["idSecteur"]==$Activité)echo " selected";
+							echo ">".$type["nom"]."</option>\n";
+						}
+						echo "</select>\n";
+					?>
+					<?php
+						mkSelect("FiltrePubli", $filtreTime, "value", "label");
+					?>
+					<?php
+						$TypeAnnonce=getTypeAnnonce();
+						//echo json_encode($TypeAnnonce);
+						echo "<select class=\"form-select form-select-sm\" id=\"TypeStage\" name=\"TypeStage\">\n";
+						echo "<option value=\"Tous\">Type de stage</option>\n";
+						foreach($TypeAnnonce as $type)
+						{	
+							echo "<option value=\"".$type["type"]."\"";
+							if ($type["type"]==$TypeStage) echo " selected";
+							echo ">".$type["type"]."</option>\n";
+						}
+						echo "</select>\n";
+					?>
+					<input type="submit" id="btn_recherche" class="btn btn-primary filtre" name="action" value="Filtrer"/>
+    			</ul>
+    		</div>
+		</form>
+</main>
 <?php
 	if($type =valider("type")){
 		$Ville =valider("ville");

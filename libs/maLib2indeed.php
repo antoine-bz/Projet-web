@@ -37,8 +37,10 @@ function mkAnnoncePreview($idAnnonce,$classname = "previewAnnonce")
     echo "</div>";
 }
 
-function mkAnnoncePreviewReponse($idAnnonce,$classname = "previewAnnonceReponse")
+//compte etudiant
+function mkAnnoncePreview2($idAnnonce,$classname = "previewAnnonce")
 {
+  
 
     $entreprise=getEntreprise(getIdEntreprise($idAnnonce));
 
@@ -60,11 +62,11 @@ function mkAnnoncePreviewReponse($idAnnonce,$classname = "previewAnnonceReponse"
     echo"<strong class=\"d-inline-block mb-2 text-primary\">$nom</strong>";
     echo"<h4 class=\"mb-0\">$nomEntreprise</h4>";
     echo"<div class=\"mb-1 text-muted\">$publication</div>";
-    echo"<a class=\"info\" href=\"index.php?view=annonce&rep=1&id=$idAnnonce\"></a>";
+    echo"<a class=\"info\" href=\"index.php?view=annonce&id=$idAnnonce\"></a>";
     echo"<p>Stage : $type <br/> Adresse : $adresse</p>";
 
-    echo"<a href=\"index.php?view=annonce&rep=1&id=$idAnnonce\" class=\"stretched-link\">Voir plus</a>";
-    echo"<a href=\"index.php?view=annonce&rep=1&id=$idAnnonce\" class=\"stretched-link\">Refuser</a>";
+    echo"<a href=\"index.php?view=annonce&id=$idAnnonce\" class=\"stretched-link\">Voir plus</a>";
+    echo"<a href=\"index.php?view=annonce&id=$idAnnonce\" class=\"stretched-link\">Supprimer</a>";
     echo "</div>";
     echo "</div>";
     echo "</div>";

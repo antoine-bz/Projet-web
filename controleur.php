@@ -41,11 +41,15 @@ session_start();
 					// Cf. maLibSecurisation
 					if (verifUser($login,$passe)) {
 						// tout s'est bien passé, doit-on se souvenir de la personne ? 
+						$iduser=getIduser($password,$login);
 						if (valider("remember")) {
+							setcookie("idUser", $iduser, time()-3600);
 							setcookie("login",$login , time()-3600);
 							setcookie("passe",$password, time()-3600);
 							setcookie("remember",true, time()-3600);
+							setcookie("connecte",true, time()-3600);
 						} else {
+							setcookie("idUser", $iduser, time()-3600);
 							setcookie("login","", time()-3600);
 							setcookie("passe","", time()-3600);
 							setcookie("remember",false, time()-3600);
@@ -128,25 +132,45 @@ session_start();
 				$qs .= "&DureeMax=" . urlencode($DureeMax);
 				break;
 
-				case 'Enregistrer' :
-				case 'Modifier':
-					$idUser = valider("idUser","SESSION");
-					//echo $idUser;
-					if(isEntreprise($idUser)){
-						
-						if($modif = valider("modif")){
-							$idEntreprises=getIdentreprises(valider("idUser","SESSION"));
-							$nom=valider("nom");
-							$adresse=valider("adresse");
-							$telephone=valider("telephone");
-							$mail=valider("mail");
-							$password=valider("password");
-							UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone);
-							UpdateConnexion($idUser,$mail,$password);
-							$qs = "?view=compteEntreprise";
-						}
-						else $qs = "?view=compteEntreprise&modifier=1";
-					}	
+			case 'Enregistrer' :
+			case 'Modifier':
+				$idUser = valider("idUser","SESSION");
+				//echo $idUser;
+				if(isEntreprise($idUser)){
+					
+					if($modif = valider("modif")){
+						$idEntreprises=getIdentreprises(valider("idUser","SESSION"));
+						$nom=valider("nom");
+						$adresse=valider("adresse");
+						$telephone=valider("telephone");
+						$mail=valider("mail");
+						$password=valider("password");
+						UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone);
+						UpdateConnexion($idUser,$mail,$password);
+						$qs = "?view=compteEntreprise";
+					}
+					else $qs = "?view=compteEntreprise&modifier=1";
+				}	
+				else if(isEtudiant($idUser)){
+				
+					if($modif = valider("modif")){
+						$idEtudiants=getIdetudiant(valider("idUser","SESSION"));
+						$nom=valider("nom");
+						$prenom=valider("prenom");
+						$age=valider("age");
+						$adresse=valider("adresse");
+						$telephone=valider("telephone");
+						$mail=valider("mail");
+						$password=valider("password");
+						UpdateEtudiant($idEtudiants,$nom,$prenom,$age,$adresse,$telephone);
+						UpdateConnexions($idUser,$mail,$password);
+						$qs = "?view=compteEtudiant";
+					}
+					else $qs = "?view=compteEtudiant&modifier=1";
+				}
+				break;		
+
+
 		}
 
 	}

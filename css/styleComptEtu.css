@@ -1,0 +1,24 @@
+.form-floating {
+	width: 200px;
+}
+
+input[name="prenom"], label[name="prenom"] {
+  margin-left: -202%;
+}
+
+input[name="age"], input[name="adresse"], input[name="telephone"] ,input[name="mail"],input[name="password"] {
+  width: 408px;
+}
+
+.btn-secondary {
+	width: 100px;
+	margin-left: 0.7%;
+}
+
+.btn-outline-secondary {
+	width: 100px;
+}
+
+.g-3 {
+	margin-left: 37%;
+}
