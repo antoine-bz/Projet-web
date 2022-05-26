@@ -20,11 +20,25 @@ include_once("libs/maLibForms.php");
 $msg = valider("msg"); 
 
 ?>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styleinscrip.css">
 <div id="formSignin">
 <?php
 if ($msg) {
-	echo "<h3 style=\"color:red;\">" . $msg ."</h3>";
+	echo "<div class=\"modal\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">";
+		echo "<div class=\"modal-dialog modal-dialog-centered\" role=\"document\">";
+    echo "<div class=\"modal-content\">";
+    echo "<div class=\"modal-header\">";
+    echo "<h5 class=\"modal-title\" id=\"exampleModalCenterTitle\">Inscription</h5>";
+    echo "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">";
+    echo "<span aria-hidden=\"true\">&times;</span>";
+    echo "</button></div>";
+    echo "<div class=\"modal-body\">" . $msg . "</div>";
+    echo "<div class=\"modal-footer\">";
+    echo "<button type=\"button\" class=\"btn btn-secondary\" class=\"close\" data-dismiss=\"modal\">Fermer</button></div></div></div></div>";
+    echo "<script type=\"text/javascript\">$(document).ready(function(){";
+    echo "$('#myModal').modal('show');});</script>";
 }
 ?>
 <main class="form-signin w-100 m-auto">

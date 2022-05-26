@@ -1,0 +1,107 @@
+.dropdown-menu {
+  height: 380px;
+  margin-left: -140%;
+  margin-top: -70%;
+}
+
+
+.form-control-dark {
+  background-color: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .15);
+  margin-top: 2%;
+}
+
+
+.w-220px {
+  width: 220px;
+}
+
+.w-280px {
+  width: 280px;
+}
+
+.w-280px h1{
+  margin-left: 34%;
+  margin-top: 5%;
+}
+
+.form-select-sm {
+  width: 180px;
+  margin-top: 2.5%;
+  margin-left: 17%;
+}
+
+.filtre {
+  margin-top: 5%;
+  margin-left: 33%;
+  width: 100px;
+}
+
+.mb-0 {
+  margin-left: 4%;
+  margin-top: 5%;
+}
+
+.form-check {
+  margin-left: 27%;
+  margin-top: 4%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[name="Ville"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 500px;
+}
+
+.form-signin input[name="Secteur"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width: 500px;
+}
+
+.form-floating {
+  margin-left: -30%;
+}
+
+.stretched-link {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 85px;
+    background-color: #118AC4;
+    padding: 4px;
+}
+
+.stretched-link:hover {
+    background-color: #1179AB;
+    color: #fff;
+}
+
+.mb-1 {
+    width: 400px;
+    margin-left: 11%;
+    margin-top: 2%;
+    display: inline-block;
+}
+
+.mb-0 {
+  margin-left: 0.5%;
+}
+
+.text-muted {
+  margin-left: 0.5%;
+}
+

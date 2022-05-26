@@ -105,18 +105,87 @@ function creerConnexionEntreprise($idEntreprises,$password,$mail)
 
 
 
+###########GET############
+
+
+function getconnexionEntreprise($idEntreprises){ //renvoie les infos de connexion de l'entreprise
+	$SQL ="SELECT mail,password FROM connexion WHERE idConnexion='".$idEntreprises."'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function getIdentreprises($idUser){
+	$SQL = "SELECT idEntreprises FROM connexion WHERE idConnexion='".$idUser."'";
+	return SQLGetChamp($SQL);
+}
+/*
+function getId2entreprises($idUser){
+	$SQL = "SELECT mail,password FROM connexion WHERE idConnexion='".$idUser."'";
+	return SQLGetChamp($SQL);
+}
+*/
+
+###########UPDATE############
+###Entreprise###
+function UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone){
+	$SQL = "UPDATE `entreprises` SET `nom` = '".$nom."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `entreprises`.`idEntreprises` = '".$idEntreprises."'";
+	SQLUpdate($SQL);
+
+}
+function UpdateConnexion($idConnexion,$mail,$password){
+	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
+	SQLUpdate($SQL);
+
+}
+
+###Etudiant###
+function UpdateEtudiant($idEtudiants,$nom,$prenom,$age,$adresse,$telephone){
+	$SQL = "UPDATE `etudiants` SET `nom` = '".$nom."',`prenom` = '".$prenom."',`age` = '".$age."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `etudiants`.`idEtudiants` = '".$idEtudiants."'";
+	SQLUpdate($SQL);
+
+}
+function UpdateConnexions($idConnexion,$mail,$password){
+	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
+	SQLUpdate($SQL);
+
+}
+
+###########Etudiant##############
+function getEtudiant($idEtudiants){ //renvoie les infos de l'etudiant
+	$SQL ="SELECT * FROM etudiants WHERE idEtudiants='".$idEtudiants."'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function getconnexionEtudiant($idEtudiants){ //renvoie les infos de connexion de l'etudiant
+	$SQL ="SELECT mail,password FROM connexion WHERE idConnexion='".$idEtudiants."'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function getIdetudiant($idUser){
+	$SQL = "SELECT idEtudiants FROM connexion WHERE idConnexion='".$idUser."'";
+	return SQLGetChamp($SQL);
+}
+
 ###########Entreprise############
-function getIdEntreprise($idAnnonce){
+function getIdEntreprise($idAnnonce){ //renvoie l'id de l'entreprise qui a créé l'annonce
 	$SQL ="SELECT idEntreprises FROM annonces WHERE idAnnonces='$idAnnonce'";
 	return SQLGetChamp($SQL);
 }
 
 
-function getEntreprise($idEntreprises){
+function getEntreprise($idEntreprises){ //renvoie les infos de l'entreprise
 	$SQL ="SELECT * FROM entreprises WHERE idEntreprises='".$idEntreprises."'";
 	return parcoursRs(SQLSelect($SQL));
 }
-
+//select * from entreprises join annonces on entreprises.identreprises=annonces.identreprises Join reponses on annonces.idannonces=reponses.idannonces where reponses.rep="yes";
+/*function getEntreprise2($idAnnonces){ 
+    $SQL ='SELECT * FROM entreprises JOIN annonces ON entreprises."idEntreprises"=annonces."idEntreprises" JOIN reponses ON annonces."idAnnonces"=reponses."idAnnonces" WHERE reponses.rep=yes AND  annonces."idAnnonces"="'.$idAnnonces.'"';
+    return parcoursRs(SQLSelect($SQL));
+}
+*/
+function getReponseEtudiant($idEtudiant){ 
+    $SQL ="SELECT * FROM reponses WHERE reponses.idEtudiants='$idEtudiant'";
+    return parcoursRs(SQLSelect($SQL));
+}
 
 ###########Annonce############
 function getAnnonce($idAnnonce){
@@ -129,11 +198,55 @@ function getLastAnnonce(){
 	return parcoursRs(SQLSelect($SQL)); 
 }
 
+function getTypeAnnonce(){ 
+	$SQL ="SELECT DISTINCT type FROM annonces";
+	return parcoursRs(SQLSelect($SQL)); 
+}
+function getInterets(){ 
+	$SQL ="SELECT DISTINCT type FROM annonces";
+	return parcoursRs(SQLSelect($SQL)); 
+}
 ###########Secteurs############
 function getSecteurs()
 {
 	$SQL ="SELECT idSecteur,nom FROM secteur";
 	return parcoursRs(SQLSelect($SQL)); 
+}
+###########Recherche############
+
+function rechercheAnnonce($Ville=NULL,$Secteur=NULL){
+	$SQL ="SELECT annonces.* FROM annonces";
+	if($Ville || $Secteur)$SQL = $SQL ." JOIN entreprises ON annonces.idEntreprises=entreprises.idEntreprises JOIN secteur ON secteur.idSecteur=entreprises.idSecteur";
+	if($Ville && !$Secteur)  $SQL = $SQL . " WHERE entreprises.adresse LIKE '%$Ville%'";
+	if(!$Ville && $Secteur)  $SQL = $SQL ." WHERE annonces.nom LIKE '%$Secteur%' OR annonces.description LIKE '%$Secteur%' OR secteur.nom LIKE '%$Secteur%' OR secteur.interet1 LIKE '%$Secteur%' OR secteur.interet2 LIKE '%$Secteur%'" ;
+	if($Ville && $Secteur)  $SQL = $SQL ." WHERE (annonces.nom LIKE '%$Secteur%' OR annonces.description LIKE '%$Secteur%' OR secteur.nom LIKE '%$Secteur%' OR secteur.interet1 LIKE '%$Secteur%' OR secteur.interet2 LIKE '%$Secteur%') AND entreprises.adresse LIKE '%$Ville%'" ;
+    //echo $SQL;
+	return parcoursRs(SQLSelect($SQL)); 
+}
+
+function filtrerAnnonce($Ville=NULL,$Secteur=NULL,$Remuneration=NULL,$Activité=NULL,$Dureemin=NULL, $Publiee=NULL,$Type=NULL,$Dureemax=NULL){
+	$SQL ="SELECT annonces.* FROM annonces";
+	if($Ville || $Secteur){
+		$SQL = $SQL ." JOIN entreprises ON annonces.idEntreprises=entreprises.idEntreprises JOIN secteur ON secteur.idSecteur=entreprises.idSecteur";
+		if($Ville && !$Secteur)  $SQL = $SQL . " WHERE entreprises.adresse LIKE '%$Ville%'";
+		if(!$Ville && $Secteur)  $SQL = $SQL ." WHERE annonces.nom LIKE '%$Secteur%' OR annonces.description LIKE '%$Secteur%' OR secteur.nom LIKE '%$Secteur%' OR secteur.interet1 LIKE '%$Secteur%' OR secteur.interet2 LIKE '%$Secteur%'" ;
+		if($Ville && $Secteur)  $SQL = $SQL ." WHERE (annonces.nom LIKE '%$Secteur%' OR annonces.description LIKE '%$Secteur%' OR secteur.nom LIKE '%$Secteur%' OR secteur.interet1 LIKE '%$Secteur%' OR secteur.interet2 LIKE '%$Secteur%') AND entreprises.adresse LIKE '%$Ville%'" ;
+		$SQL = $SQL ." AND annonces.date>'$Publiee' AND annonces.duree > '$Dureemin'"; 
+		if ($Remuneration) $SQL = $SQL . " AND annonces.remuneration='1'";
+		if ($Type!="Tous") $SQL = $SQL . " AND annonces.type LIKE '$Type'";
+		if ($Activité!="Tous") $SQL = $SQL . " AND entreprises.idSecteur='$Activité'";
+		if ($Dureemax!="Tous") $SQL = $SQL . " AND annonces.duree < '$Dureemax'";
+	}
+	else {
+		$SQL = $SQL ." JOIN entreprises ON annonces.idEntreprises=entreprises.idEntreprises JOIN secteur ON secteur.idSecteur=entreprises.idSecteur";
+		$SQL = $SQL ." WHERE annonces.date>'$Publiee' AND annonces.duree > '$Dureemin'"; 
+		if ($Remuneration) $SQL = $SQL . " AND annonces.remuneration='1'";
+		if ($Type!="Tous") $SQL = $SQL . " AND annonces.type='$Type'";
+		if ($Activité!="Tous") $SQL = $SQL . " AND entreprises.idSecteur='$Activité'";
+		if ($Dureemax) $SQL = $SQL . " AND annonces.duree < '$Dureemax'";
+	}
+	//echo $SQL;
+	return parcoursRs(SQLSelect($SQL));  
 }
 ?>
 
