@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/styleDepot.css">
+<link rel="stylesheet" type="text/css" href="css/styleDepo.css">
 <?php
 
 //C'est la propriété php_self qui nous l'indique : 
@@ -24,26 +24,29 @@ if ($msg) {
 	echo "<h3 style=\"color:red;\">" . $msg ."</h3>";
 }
 if (valider("connecte","SESSION")){
-	echo ("<h3>Deposer un CV</h3>");
+	echo ('<h3 class="h3 fw-normal">Deposer un CV</h3>');
 	echo '<form action="upload.php" method="post" enctype="multipart/form-data">';
-	echo 'Selectionner votre CV en format pdf: </br><input type="file" name="fileToUpload" id="fileToUpload">';
+	echo '<div class="depot">';
+	echo 'Selectionnez votre CV (en format PDF)</br><input type="file" name="fileToUpload" id="fileToUpload">';
 	echo '<input name="location" type="hidden" value="depot"></br>';
 	echo '<input name="file" type="hidden" value="CV">';
 	echo '<input name="idUser" type="hidden" value="'.valider("idUser","SESSION").'">';
-	echo '<input type="submit" value="Deposer le CV" name="submit"></form>';
+	echo '<input class="btn btn-primary" type="submit" value="Deposer le CV" name="submit"></form>';
+	echo '</div>';
 
 	$idEtudiant= getIdEtudiant(valider("idUser","SESSION"));
 	$nomDestination = "CVs/CV_de_".$idEtudiant.".pdf";
 	if(file_exists($nomDestination)){
-		echo ("<h3>CV déjà déposé</h3>");
-		echo "<a class=\"btn btn-secondary\" href=\"".$nomDestination."\" target=\"_blank\">Voir le CV</a>";
-
+		echo ('<h3 class="h3 fw-normal">Vous avez déjà déposé un CV</h3>');
+		echo '<div class="cv">';
+		echo "<a class=\"btn btn-outline-primary\" href=\"".$nomDestination."\" target=\"_blank\">Voir le CV</a>";
 		echo '<form action="upload.php" method="GET">';
 		echo '<input name="dest" type="hidden" value="'.$nomDestination.'">';
 		echo '<input name="file" type="hidden" value="CV">';
 		echo '<input name="action" type="hidden" value="supprimer">';
-		echo '<input class="btn btn-secondary" type="submit" value="Supprimer le CV" name="submit">';
+		echo '<input class="btn btn-outline-primary" type="submit" value="Supprimer le CV" name="submit">';
 		echo '</form>';
+		echo '</div>';
 	}
 }
 else {

@@ -1,0 +1,56 @@
+textarea {
+	max-height: 55%;
+	max-width: 55%;
+	margin-left: 17%;
+}
+
+.h-md-250 {
+	height: 60%;
+	width: 60%;
+	margin-left: 17%;
+}
+
+.annonce {
+	margin-left: 17%;
+	font-size: 100%;
+}
+
+.fw-normal {
+	margin-left: 17%;
+}
+
+.modal {
+	display: none;
+}
+
+.info1 {
+	margin-left: 18%;
+}
+
+.info2 {
+	margin-left: 1%;
+}
+
+.contact {
+	margin-left: 18%;
+	font-size: 110%;
+}
+
+.nometud {
+	margin-left: 18%;
+}
+
+.ageetud {
+	margin-left: 18%;
+	margin-top: -0.5%;
+}
+
+.rep1 {
+	margin-left: 18%;
+	font-size: 110%;
+}
+
+.rep2 {
+	margin-left: 1%;
+	font-size: 110%;
+}

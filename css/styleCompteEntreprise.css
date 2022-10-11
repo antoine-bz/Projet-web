@@ -1,0 +1,21 @@
+.form-floating {
+	width: 350px;
+}
+
+.btn-secondary {
+	width: 100px;
+	margin-left: 0.7%;
+}
+
+.btn-outline-secondary {
+	width: 100px;
+}
+
+.btn-outline-primary {
+	font-size: 70%;
+	margin-left: 0.5%;
+}
+
+.g-3 {
+	margin-left: 3%;
+}

@@ -33,7 +33,7 @@ include_once("libs/maLibForms.php");
 
     <div class="row g-5">
       <div class="col-md-6">
-        <h2>Commencer à publier vos annonces !</h2>
+        <h2>Commencez à publier vos annonces !</h2>
         <p>En créant votre compte entreprise, vous pourrez directement publier <br/>vos premières annonces !</p>
       </div>
       <div class="col-md-6">

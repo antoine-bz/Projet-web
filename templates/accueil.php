@@ -40,7 +40,7 @@ if ($msg) {
 }
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/styleaccueil.css">
+<link rel="stylesheet" type="text/css" href="css/styleaccue.css">
 <div id="corps">
 <h1>Bienvenue sur 2i'ndeed !</h1>
 <main class="form-signin w-30 m-auto">
@@ -61,7 +61,7 @@ if ($msg) {
         //echo json_encode($lastannonces);
         foreach($lastannonces as $annonce)
         {
-            mkAnnoncePreview($annonce["idAnnonces"],"previewAnnonce");
+            mkAnnoncePreview($annonce["idAnnonces"]);
         }
     ?>
 </div>

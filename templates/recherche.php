@@ -22,11 +22,11 @@ $today = date("Y-m-d");
 $time=sscanf($today,"%d-%d-%d");
 
 $def=sprintf( "%04d-%02d-%02d", $time[0]-2000, $time[1], $time[2]);
-$ajourdhui=sprintf( "%04d-%02d-%02d", $time[0], $time[1], $time[2]-1);
-$tjour=sprintf( "%04d-%02d-%02d", $time[0], $time[1], $time[2]-7);
-$sjour=sprintf( "%04d-%02d-%02d", $time[0], $time[1]-3, $time[2]);
-$mois=sprintf( "%04d-%02d-%02d", $time[0], $time[1]-1, $time[2]);
-$tmois=sprintf( "%04d-%02d-%02d", $time[0], $time[1]-3, $time[2]);
+$ajourdhui=date('Y-m-d',strtotime("-1 day"));
+$tjour=date('Y-m-d',strtotime("-3 day"));
+$sjour=date('Y-m-d',strtotime("-7 day"));
+$mois=date('Y-m-d',strtotime("-1 month"));
+$tmois=date('Y-m-d',strtotime("-3 month"));
 $annee=sprintf( "%04d-%02d-%02d", $time[0]-1, $time[1], $time[2]);
 
 
@@ -76,7 +76,7 @@ $DureeMax =valider("DureeMax");
     				<input type="search" class="form-control form-control-dark" name="DuréeMin" id="DuréeMin" autocomplete="false" placeholder="Durée minimale (mois)" value="<?php echo $DureeMin; ?>">
       				<input type="search" class="form-control form-control-dark" name="DuréeMax" id="DuréeMax" autocomplete="false" placeholder="Durée maximale (mois)" value="<?php echo $DureeMax; ?>">
     			</form>
-				<div class="form-check">
+				<div class="form-check form-switch">
   					<input class="form-check-input checkbox" type="checkbox" name="Remuneration" id="flexCheckDefault Remunération" <?php if($Remuneration) echo "checked"; ?>/>
   					<label class="form-check-label" for="flexCheckDefault">
     				Rémunération

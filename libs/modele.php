@@ -47,9 +47,6 @@ function isAdmin($idUser)
 	return SQLGetChamp($SQL); 
 }
 
-
-
-
 function getIduser($password,$mail)
 {
 	$SQL ="SELECT idConnexion FROM connexion WHERE password='$password' AND mail='$mail'";
@@ -105,50 +102,6 @@ function creerConnexionEntreprise($idEntreprises,$password,$mail)
 
 
 
-###########GET############
-
-
-function getconnexionEntreprise($idEntreprises){ //renvoie les infos de connexion de l'entreprise
-	$SQL ="SELECT mail,password FROM connexion WHERE idConnexion='".$idEntreprises."'";
-	return parcoursRs(SQLSelect($SQL));
-}
-
-function getIdentreprises($idUser){
-	$SQL = "SELECT idEntreprises FROM connexion WHERE idConnexion='".$idUser."'";
-	return SQLGetChamp($SQL);
-}
-/*
-function getId2entreprises($idUser){
-	$SQL = "SELECT mail,password FROM connexion WHERE idConnexion='".$idUser."'";
-	return SQLGetChamp($SQL);
-}
-*/
-
-###########UPDATE############
-###Entreprise###
-function UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone){
-	$SQL = "UPDATE `entreprises` SET `nom` = '".$nom."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `entreprises`.`idEntreprises` = '".$idEntreprises."'";
-	SQLUpdate($SQL);
-
-}
-function UpdateConnexion($idConnexion,$mail,$password){
-	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
-	SQLUpdate($SQL);
-
-}
-
-###Etudiant###
-function UpdateEtudiant($idEtudiants,$nom,$prenom,$age,$adresse,$telephone){
-	$SQL = "UPDATE `etudiants` SET `nom` = '".$nom."',`prenom` = '".$prenom."',`age` = '".$age."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `etudiants`.`idEtudiants` = '".$idEtudiants."'";
-	SQLUpdate($SQL);
-
-}
-function UpdateConnexions($idConnexion,$mail,$password){
-	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
-	SQLUpdate($SQL);
-
-}
-
 ###########Etudiant##############
 function getEtudiant($idEtudiants){ //renvoie les infos de l'etudiant
 	$SQL ="SELECT * FROM etudiants WHERE idEtudiants='".$idEtudiants."'";
@@ -156,13 +109,30 @@ function getEtudiant($idEtudiants){ //renvoie les infos de l'etudiant
 }
 
 function getconnexionEtudiant($idEtudiants){ //renvoie les infos de connexion de l'etudiant
-	$SQL ="SELECT mail,password FROM connexion WHERE idConnexion='".$idEtudiants."'";
+	$SQL ="SELECT mail,password FROM connexion WHERE idEtudiants='".$idEtudiants."'";
 	return parcoursRs(SQLSelect($SQL));
 }
 
 function getIdetudiant($idUser){
 	$SQL = "SELECT idEtudiants FROM connexion WHERE idConnexion='".$idUser."'";
 	return SQLGetChamp($SQL);
+}
+
+function UpdateEtudiant($idEtudiants,$nom,$prenom,$age,$adresse,$telephone){
+	$SQL = "UPDATE `etudiants` SET `nom` = '".$nom."',`prenom` = '".$prenom."',`age` = '".$age."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `etudiants`.`idEtudiants` = '".$idEtudiants."'";
+	SQLUpdate($SQL);
+
+}
+
+function UpdateConnexions($idConnexion,$mail,$password){
+	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
+	SQLUpdate($SQL);
+
+}
+
+function getIduserFromEtudiant($idEtudiants){
+    $SQL ="SELECT idConnexion FROM connexion WHERE idEtudiants='$idEtudiants'";
+    return SQLGetChamp($SQL);
 }
 
 ###########Entreprise############
@@ -176,18 +146,69 @@ function getEntreprise($idEntreprises){ //renvoie les infos de l'entreprise
 	$SQL ="SELECT * FROM entreprises WHERE idEntreprises='".$idEntreprises."'";
 	return parcoursRs(SQLSelect($SQL));
 }
-//select * from entreprises join annonces on entreprises.identreprises=annonces.identreprises Join reponses on annonces.idannonces=reponses.idannonces where reponses.rep="yes";
-/*function getEntreprise2($idAnnonces){ 
-    $SQL ='SELECT * FROM entreprises JOIN annonces ON entreprises."idEntreprises"=annonces."idEntreprises" JOIN reponses ON annonces."idAnnonces"=reponses."idAnnonces" WHERE reponses.rep=yes AND  annonces."idAnnonces"="'.$idAnnonces.'"';
+
+function UpdateEntreprise($idEntreprises,$nom,$adresse,$telephone){
+	$SQL = "UPDATE `entreprises` SET `nom` = '".$nom."', `adresse` = '".$adresse."', `telephone` = '".$telephone."' WHERE `entreprises`.`idEntreprises` = '".$idEntreprises."'";
+	SQLUpdate($SQL);
+
+}
+function UpdateConnexion($idConnexion,$mail,$password){
+	$SQL = "UPDATE `connexion` SET `mail` = '".$mail."', `password` = '".$password."' WHERE `connexion`.`idConnexion` = '".$idConnexion."'";
+	SQLUpdate($SQL);
+
+}
+
+function getIdentreprises($idUser){
+	$SQL = "SELECT idEntreprises FROM connexion WHERE idConnexion='".$idUser."'";
+	return SQLGetChamp($SQL);
+}
+
+function getconnexionEntreprise($idEntreprises){ //renvoie les infos de connexion de l'entreprise
+	$SQL ="SELECT mail,password FROM connexion WHERE idEntreprises='".$idEntreprises."'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function getIduserFromEntreprise($idEntreprise){
+    $SQL ="SELECT idConnexion FROM connexion WHERE idEntreprises='$idEntreprise'";
+    return SQLGetChamp($SQL);
+}
+
+
+###########FAVORIS############
+
+function getFavorisEtudiant($idEtudiant){ 
+    $SQL ="SELECT idAnnonces FROM favoris WHERE favoris.idEtudiants='$idEtudiant'";
     return parcoursRs(SQLSelect($SQL));
 }
-*/
-function getReponseEtudiant($idEtudiant){ 
-    $SQL ="SELECT * FROM reponses WHERE reponses.idEtudiants='$idEtudiant'";
-    return parcoursRs(SQLSelect($SQL));
+///
+function Deletefav($idAnnonce,$idEtudiant){ //en fct de l'id
+	$SQL="DELETE FROM favoris WHERE `favoris`.`idAnnonces` = '$idAnnonce'  AND `favoris`.`idEtudiants` = '$idEtudiant'";
+    return SQLDelete($SQL);
+}
+
+
+function Deletefav2($idAnnonce){ //qd tu supp une annonce, tu supp de fav de tt lmonde
+	$SQL="DELETE FROM favoris WHERE `favoris`.`idAnnonces` = '$idAnnonce'";
+    return SQLDelete($SQL);
+}
+
+function estFav($idEtudiant,$idAnnonces){
+	$SQL ="SELECT * FROM favoris WHERE favoris.idEtudiants='$idEtudiant' AND favoris.idAnnonces='$idAnnonces'";
+	return parcoursRs(SQLSelect($SQL));
+}
+
+function ajoutFav($idEtudiant,$idAnnonces){
+	$SQL="INSERT INTO favoris (`idEtudiants`, `idAnnonces`) VALUES ('$idEtudiant', '$idAnnonces')";
+	return parcoursRs(SQLSelect($SQL));
 }
 
 ###########Annonce############
+///
+function DeleteAnn($idAnnonce){ 
+	$SQL="DELETE FROM annonces WHERE `annonces`.`idAnnonces` = '$idAnnonce'";
+    return SQLDelete($SQL);
+}
+
 function getAnnonce($idAnnonce){
 	$SQL ="SELECT * FROM annonces WHERE idAnnonces='$idAnnonce'";
 	return parcoursRs(SQLSelect($SQL)); 
@@ -202,9 +223,13 @@ function getTypeAnnonce(){
 	$SQL ="SELECT DISTINCT type FROM annonces";
 	return parcoursRs(SQLSelect($SQL)); 
 }
-function getInterets(){ 
-	$SQL ="SELECT DISTINCT type FROM annonces";
-	return parcoursRs(SQLSelect($SQL)); 
+function getAnnoncesFromEntreprise($idEntreprise){
+	$SQL="SELECT idAnnonces FROM annonces WHERE idEntreprises ='$idEntreprise'";
+	return parcoursRs(SQLSelect($SQL));
+}
+function NvAnnonce($nom,$idEntreprises,$Remuneration,$date,$duree,$type,$description){
+	$SQL="INSERT INTO `annonces` ( `nom`, `idEntreprises`, `remuneration`, `date`, `duree`, `type`, `description`) VALUES ( '$nom', '$idEntreprises', '$Remuneration', '$date', '$duree', '$type', '$description')";
+	return parcoursRs(SQLSelect($SQL));
 }
 ###########Secteurs############
 function getSecteurs()
@@ -212,8 +237,10 @@ function getSecteurs()
 	$SQL ="SELECT idSecteur,nom FROM secteur";
 	return parcoursRs(SQLSelect($SQL)); 
 }
-###########Recherche############
 
+
+
+###########Recherche############
 function rechercheAnnonce($Ville=NULL,$Secteur=NULL){
 	$SQL ="SELECT annonces.* FROM annonces";
 	if($Ville || $Secteur)$SQL = $SQL ." JOIN entreprises ON annonces.idEntreprises=entreprises.idEntreprises JOIN secteur ON secteur.idSecteur=entreprises.idSecteur";
@@ -248,7 +275,45 @@ function filtrerAnnonce($Ville=NULL,$Secteur=NULL,$Remuneration=NULL,$Activité=
 	//echo $SQL;
 	return parcoursRs(SQLSelect($SQL));  
 }
+
+
+###########Reponses############
+function getReponseEtudiant($idEtudiant){ 
+    $SQL ="SELECT * FROM reponses WHERE reponses.idEtudiants='$idEtudiant'";
+    return parcoursRs(SQLSelect($SQL));
+}
+
+
+function getReponseAnnonce($idAnnonces){ 
+    $SQL ="SELECT * FROM reponses WHERE reponses.idAnnonces='$idAnnonces'";
+    return parcoursRs(SQLSelect($SQL));
+}
+
+function aRepondu($idEtudiant,$idAnnonces){
+	$SQL ="SELECT * FROM reponses WHERE reponses.idEtudiants='$idEtudiant' AND reponses.idAnnonces='$idAnnonces'";
+	return parcoursRs(SQLSelect($SQL));
+}
+///
+function DeleteRep($idAnnonce){
+	$SQL="DELETE FROM reponses WHERE reponses.idAnnonces = '$idAnnonce'";
+	return SQLDelete($SQL);
+}
+
+function DeleteRep2($idEtudiant,$idAnnonce){ //supp les rep d'un etudiant
+	$SQL="DELETE FROM reponses WHERE reponses.idEtudiants='$idEtudiant' AND reponses.idAnnonces = '$idAnnonce'";
+	return SQLDelete($SQL);
+}
+
+function ajoutReponse($idEtudiant,$idAnnonce,$message){
+	$SQL="INSERT INTO `reponses` (`idRep`, `idAnnonces`, `idEtudiants`, `rep`, `message`) VALUES (NULL, $idAnnonce, $idEtudiant, NULL,'$message')";
+	return parcoursRs(SQLSelect($SQL));
+}
+function majRepReponse($idEtudiant,$idAnnonce,$rep){
+	$SQL="UPDATE `reponses` SET `rep` = '$rep' WHERE `reponses`.`idEtudiants` = '$idEtudiant' AND `reponses`.`idAnnonces` = '$idAnnonce'";
+	SQLUpdate($SQL);
+}
 ?>
+
 
 
 

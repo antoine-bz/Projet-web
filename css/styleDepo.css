@@ -1,0 +1,31 @@
+.mb-3 {
+	text-align: center;
+	margin-top: 1%;
+}
+
+p {
+	text-align: center;
+	font-size: 120%;
+}
+
+.btn-outline-primary {
+	margin-top: 0.5%;
+	font-size: 90%;
+}
+
+.btn-primary {
+	margin-top: 0.5%;
+}
+
+.depot {
+	margin-left: 38%;
+}
+
+.fw-normal {
+	margin-top: 0.5%;
+	margin-left: 38%;
+}
+
+.cv {
+	margin-left: 38%;
+}

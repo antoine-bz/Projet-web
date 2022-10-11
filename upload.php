@@ -18,8 +18,8 @@ if (!valider("connecte","SESSION")){
 	$idEtudiant= getIdEtudiant($idUser);
 	$nomDestinationCV = "CV_de_".$idEtudiant.".pdf";
 	
-	$nomDestinationProfile = "PP_de_".$idUser.".png";
-	$extensionsAutorisees = array("jpeg", "jpg", "png");
+	$nomDestinationprofil = "PP_de_".$idUser.".png";
+	$extensionsAutorisees = array("jpeg", "jpg", "png","PNG","JPEG","JPG");
 
 	if(isset($_GET["submit"])) {
 		$file=valider('file');
@@ -36,7 +36,7 @@ if (!valider("connecte","SESSION")){
 						break;
 				}
 				break;
-			case 'profile':
+			case 'profil':
 				echo "switch";
 				$action=valider('action');
 				$qs = "?view=accueil";
@@ -48,12 +48,12 @@ if (!valider("connecte","SESSION")){
 						$dest = valider("dest");
 						echo $dest;
 						unlink($dest);
-						$qs = "?view=compteEtudiant&msg=".urlencode("La photo de profile a été supprimer avec succès");
+						$qs = "?view=compteEtudiant&msg=".urlencode("La photo de profil a été supprimer avec succès");
 						break;
 					case "supprimerEnt" :
 						$dest = valider("dest");
 						unlink($dest);
-						$qs = "?view=compteEntreprise&msg=".urlencode("La photo de profile a été supprimer avec succès");
+						$qs = "?view=compteEntreprise&msg=".urlencode("La photo de profil a été supprimer avec succès");
 						break;
 				}
 				break;
@@ -68,16 +68,17 @@ if (!valider("connecte","SESSION")){
 
 	if(isset($_POST["submit"])) {
 
-		if ($_FILES["fileToUpload"]["size"] > 5000000) {
-			header("Location:".dirname($_SERVER["PHP_SELF"]) ."/index.php?view=depot&msg=".urlencode("Fichier trop gros"));
-			die("");
-		}
 		$file=valider('file','POST');
 		
 		echo $file;
+		
+		$redirect=valider("location","POST");
 		switch ($file) {
 			case 'CV':
-				
+				if ($_FILES["fileToUpload"]["size"] > 5000000) {
+					header("Location:".dirname($_SERVER["PHP_SELF"]) ."/index.php?view=depot&msg=".urlencode("Fichier trop gros"));
+					die("");
+				}
 				
 				if (pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION)!='pdf'){
 					header("Location:".dirname($_SERVER["PHP_SELF"]) ."/index.php?view=depot&msg=".urlencode("Mauvais format"));
@@ -94,18 +95,22 @@ if (!valider("connecte","SESSION")){
 			break;
 
 
-			case 'profile':
+			case 'profil':
 				if (!(in_array(pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION), $extensionsAutorisees))){
 					header("Location:".dirname($_SERVER["PHP_SELF"]) ."/index.php?view=".$redirect."&msg=".urlencode("Mauvais format"));
 					die("");
 				}
-				if (!file_exists($nomDestinationProfile)){
-					move_uploaded_file($_FILES['fileToUpload']['tmp_name'], 'PPs/'.$nomDestinationProfile);
+				if ($_FILES["fileToUpload"]["size"] > 5000000) {
+					header("Location:".dirname($_SERVER["PHP_SELF"]) ."/index.php?view=".$redirect."&msg=".urlencode("Fichier trop gros"));
+					die("");
+				}
+				if (!file_exists($nomDestinationprofil)){
+					move_uploaded_file($_FILES['fileToUpload']['tmp_name'], 'PPs/'.$nomDestinationprofil);
 				}
 				else{
-					unlink('PPs/'.$nomDestinationProfile);
+					unlink('PPs/'.$nomDestinationprofil);
 
-					move_uploaded_file($_FILES['fileToUpload']['tmp_name'], 'PPs/'.$nomDestinationProfile);
+					move_uploaded_file($_FILES['fileToUpload']['tmp_name'], 'PPs/'.$nomDestinationprofil);
 					
 				}
 				break;

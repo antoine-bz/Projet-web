@@ -2,12 +2,9 @@
 	width: 200px;
 }
 
-input[name="prenom"], label[name="prenom"] {
-  margin-left: -202%;
-}
 
-input[name="age"], input[name="adresse"], input[name="telephone"] ,input[name="mail"],input[name="password"] {
-  width: 408px;
+input[name="age"], input[name="adresse"], input[name="telephone"] ,input[name="mail"],input[name="password"],input[name="nom"],input[name="prenom"] {
+  width: 160%;
 }
 
 .btn-secondary {
@@ -19,6 +16,29 @@ input[name="age"], input[name="adresse"], input[name="telephone"] ,input[name="m
 	width: 100px;
 }
 
+.btn-outline-primary {
+	font-size: 70%;
+	margin-left: 0.5%;
+}
+
 .g-3 {
-	margin-left: 37%;
+	margin-left: 3%;
+}
+
+.mb-1 {
+    width: 400px;
+    margin-left: 2%;
+    display: inline-block;
+}
+
+.fw-normal {
+	margin-left: 3%;
+}
+
+.text-muted {
+  margin-left: 0.5%;
+}
+
+.etudiant {
+	margin-left: -1%;
 }

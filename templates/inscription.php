@@ -27,7 +27,7 @@ $msg = valider("msg");
 <?php
 if ($msg) {
 	echo "<div class=\"modal\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">";
-		echo "<div class=\"modal-dialog modal-dialog-centered\" role=\"document\">";
+	echo "<div class=\"modal-dialog modal-dialog-centered\" role=\"document\">";
     echo "<div class=\"modal-content\">";
     echo "<div class=\"modal-header\">";
     echo "<h5 class=\"modal-title\" id=\"exampleModalCenterTitle\">Inscription</h5>";

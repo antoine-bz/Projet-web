@@ -1,0 +1,15 @@
+.form-floating {
+	width: 210px;
+}
+
+textarea {
+	max-width: 210px;
+}
+
+.pubform {
+	margin-left: 42%;
+}
+
+.fw-normal {
+	margin-left: -8%;
+}

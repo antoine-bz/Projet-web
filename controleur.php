@@ -168,9 +168,70 @@ session_start();
 					}
 					else $qs = "?view=compteEtudiant&modifier=1";
 				}
-				break;		
+				break;	
+			case'publierannonce':
+				$qs = "?view=publication&erreur=1&msg=" . urlencode("Informations incorrects");
+				$idEntreprises=getIdentreprises(valider("idUser","SESSION"));
+				if($nom=valider("nom"))
+				if($duree=valider("duree"))
+				if($type=valider("type"))
+					{
+						$description=valider("description");
+						$Remuneration=valider("remuneration");
+						$date=valider("date");
+						NvAnnonce($nom,$idEntreprises,$Remuneration,$date,$duree,$type,$description);
+						$qs = "?view=publication&msg=" . urlencode("Publication réussie");
+					}
+				break;
+			case 'supprimerannonce':
+				$qs = "?view=myannonces&msg=" . urlencode("annonce supprimée");
+				$idAnnonce = valider('idannonce');
+				Deletefav2($idAnnonce);
+				DeleteRep($idAnnonce);
+				DeleteAnn($idAnnonce);
+				break;
 
-
+			case 'supprimerfavEtudiant':
+				
+				$idAnnonce = valider('idannonce');
+				$idEtudiant = valider('idetudiant');
+				Deletefav($idAnnonce,$idEtudiant);
+				$qs = "?view=annonce&id=$idAnnonce&msg=" . urlencode("favoris supprimé");
+				break;
+			case 'ajouterfavEtudiant':
+				$idAnnonce = valider('idannonce');
+				$idEtudiant = valider('idetudiant');
+				ajoutFav($idEtudiant,$idAnnonce);
+				$qs = "?view=annonce&id=$idAnnonce&msg=" . urlencode("favoris ajouté");
+				break;
+			case 'SupprimerReponse':
+				$idAnnonce = valider('idannonce');
+				$idEtudiant = valider('idetudiant');
+				DeleteRep2($idEtudiant,$idAnnonce);
+				$qs = "?view=annonce&id=$idAnnonce&msg=" . urlencode("réponse supprimée");
+				break;
+		case 'PostulerAnnonce':
+				
+				$idAnnonce = valider('idannonce');
+				$idEtudiant = valider('idetudiant');
+				$message = valider('message');
+				ajoutReponse($idEtudiant,$idAnnonce,$message);
+				$qs = "?view=annonce&id=$idAnnonce&msg=" . urlencode("vous venez de postuler à cette annonce");
+				break;
+		case 'reponsePostuler':
+				
+				$idAnnonce = valider('idannonce');
+				$idEtudiant = valider('idetudiant');
+				$reponse = valider('reponse');
+				if($reponse=="Accepter"){
+					$rep='yes';
+				}
+				else if($reponse=="Refuser"){
+					$rep="no";
+				}
+				majRepReponse($idEtudiant,$idAnnonce,$rep);
+				$qs = "?view=annonce&id=$idAnnonce";
+				break;
 		}
 
 	}

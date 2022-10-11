@@ -21,17 +21,17 @@ include_once("libs/maLibForms.php");
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="css/styleCompteEntre.css">
+<link rel="stylesheet" type="text/css" href="css/styleCompteEntreprise.css">
+<link rel="stylesheet" type="text/css" href="css/styleComptepwd.css">
 <br/>
 <form action="controleur.php" method="GET">
 <?php 
     $infoidEntreprise=getIdentreprises(valider("idUser","SESSION"));
     //echo json_encode($infoidEntreprise);
+
     $infosEntreprise=getEntreprise($infoidEntreprise);
-    
-    //$infoid2Entreprise=getId2entreprises(valider("idUser","SESSION"));
-    //echo json_encode($infoid2Entreprise);
-    $infosEntreprises=getconnexionEntreprise(valider("idUser","SESSION"));
+    //echo json_encode($infosEntreprise);
+    $infosEntreprises=getconnexionEntreprise($infoidEntreprise);
     //echo json_encode($infosEntreprises);
 
     $value="/>";
@@ -39,6 +39,10 @@ include_once("libs/maLibForms.php");
    else {
    $value= "Enregistrer\"/>&nbsp;&nbsp;<a class=\"btn btn-outline-secondary\" href=\"index.php?view=compteEntreprise\" type=\"button\">Annuler</a>";
    }
+
+
+
+
 
    $nomDestination="PPs/PP_de_".$idUser.".png";
    if (file_exists($nomDestination))
@@ -60,8 +64,16 @@ if(!valider("modifier")){
         echo "<div class=\"col-sm-9 text-secondary\">".$infosEntreprise[0]["telephone"]."</div></div><hr>";
         echo "<div class=\"row\"><div class=\"col-sm-3\"><h6 class=\"mb-0\">Email</h6></div><div class=\"col-sm-9 text-secondary\">".$infosEntreprises[0]["mail"]."</div></div><hr>";
         echo "<div class=\"row\"><div class=\"col-sm-3\"><h6 class=\"mb-0\">Mot de passe</h6></div>";
-        echo "<div class=\"col-sm-9 text-secondary\">".$infosEntreprises[0]["password"]."</div></div><hr>";
+        
+        echo "<div id=\"motpasse1\" class=\"col-sm-9 text-secondary\">".$infosEntreprises[0]["password"]."</div>";
+        echo "<div id=\"cachemotpasse1\" class=\"col-sm-9 text-secondary\">xxxxxxxxx</div>";
+        echo "</div><hr>";
+
         echo '<input class="btn btn-secondary" type="submit" id="Modifier" name="action" value="'.$value;
+      
+        echo "<a  id=\"cachemotpasse2\" class=\"btn btn-outline-secondary\" onclick=\"showPassword()\">Afficher le mot de passe</a>";
+        echo "<a id=\"motpasse2\" class=\"btn btn-outline-secondary\" onclick=\"hidePassword()\">Cacher le mot de passe</a>";
+      
         echo "</div></div></div></div></div></div></div></div></form>";
 }
 else {
@@ -98,25 +110,28 @@ else {
 
 
 
-   //PHOTO DE PROFILE
-   echo ("<h3>Changer de Photo de profile</h3>");
+   //PHOTO DE profil
+   echo '<br/>';
+   echo '<div class="row g-3">';
+   echo '<h4>Changer de photo de profil</h4>';
    echo '<form action="upload.php" method="post" enctype="multipart/form-data">';
-   echo 'Selectionner votre Photo de profile en format jpeg, jpg ou png: </br><input type="file" name="fileToUpload" id="fileToUpload">';
+   echo 'Selectionner une photo en jpeg, jpg ou png</br><input type="file" name="fileToUpload" id="fileToUpload">';
    echo '<input name="location" type="hidden" value="compteEntreprise"></br>';
-   echo '<input name="file" type="hidden" value="profile">';
+   echo '<input name="file" type="hidden" value="profil">';
    echo '<input name="idUser" type="hidden" value="'.valider("idUser","SESSION").'">';
-   echo '<input type="submit" value="Changer de Photo de profil" name="submit"></form>';
+   echo '<input class="btn btn-primary mt-1" type="submit" value="Changer la photo" name="submit"></form>';
+
 
 
    if(file_exists($nomDestination)){
-      echo "<a class=\"btn btn-secondary\" href=\"".$nomDestination."\" target=\"_blank\">Voir la photo de profile</a>";
-
       echo '<form action="upload.php" method="GET">';
+       echo "<a class=\"btn btn-outline-primary\" href=\"".$nomDestination."\" target=\"_blank\">Voir la photo</a>";
       echo '<input name="dest" type="hidden" value="'.$nomDestination.'">';
-      echo '<input name="file" type="hidden" value="profile">';
+      echo '<input name="file" type="hidden" value="profil">';
       echo '<input name="action" type="hidden" value="supprimerEnt">';
-      echo '<input class="btn btn-secondary" type="submit" value="Supprimer la photo de profile" name="submit">';
+      echo '<input class="btn btn-outline-primary" type="submit" value="Supprimer la photo" name="submit">';
       echo '</form>';
+      echo '</div>';
    }
 
 }

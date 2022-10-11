@@ -29,7 +29,7 @@ include_once("libs/maLibForms.php");
     <div class="row align-items-md-stretch">
       <div class="col-md-5">
         <div class="h-100 p-5 text-white bg-primary rounded-3">
-          <h2>Commencer à trouver un stage</h2>
+          <h2>Commencez à trouver un stage</h2>
           <p>Vous pouvez dès à présent commencer à chercher un stage grâce à notre site qui répertorie toutes les annonces des entreprises qui se sont enregistés sur notre site.</p>
           <a class="btn btn-outline-light" href="index.php?view=recherche" type="button">Rechercher un stage</a>
         </div>

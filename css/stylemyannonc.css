@@ -1,0 +1,19 @@
+.mb-1 {
+    width: 400px;
+    margin-left: 5%;
+    margin-top: 2%;
+    display: inline-block;
+}
+
+.text-muted {
+  margin-left: 0.5%;
+}
+
+.mt-3 {
+  margin-left: 6%;
+}
+
+.publier {
+  margin-left: 42%;
+  font-size: 130%;
+}

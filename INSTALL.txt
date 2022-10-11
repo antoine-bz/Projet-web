@@ -1,0 +1,7 @@
+Pour installer le projet 2i'ndeed:
+
+1. Créer une base de données à partir du fichier 2indeed.sql (situé à la racine du projet)
+
+2. Ajouter config.php à la racine du projet et modifier le nom du projet de la base de données
+
+3. Ouvrir le projet sur un serveur web

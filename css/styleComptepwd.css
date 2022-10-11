@@ -1,0 +1,13 @@
+#motpasse1, #motpasse2 {
+	display: none;
+    float: right;
+    width: fit-content;
+    text-align: auto; 
+}
+
+#cachemotpasse1, #cachemotpasse2 {
+	display: block;
+    float: right;
+    width: fit-content;
+    text-align: auto;; 
+}
